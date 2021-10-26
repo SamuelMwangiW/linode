@@ -19,7 +19,7 @@ class ImageDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
         public ?string  $vendor,
         public ?string $expiry,
         public Carbon  $eol,
-        public string  $status,
+        public ?string  $status,
     ) {
     }
 

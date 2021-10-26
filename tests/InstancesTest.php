@@ -70,6 +70,5 @@ it('destroys an instance')
 
 it('shuts down an instance')
     ->with('instance-id')
-    ->skip()
     ->expect(fn ($instance) => Linode::instance()->shutdown(value($instance)))
     ->status()->toBe(200);

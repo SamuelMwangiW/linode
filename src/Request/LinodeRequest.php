@@ -3,6 +3,7 @@
 namespace SamuelMwangiW\Linode\Request;
 
 use Illuminate\Http\Client\Response;
+use JustSteveKing\StatusCode\Http;
 use JustSteveKing\Transporter\Request;
 use SamuelMwangiW\Linode\Exceptions\CredentialsMissing;
 
@@ -36,7 +37,9 @@ class LinodeRequest extends Request
                 userAgent: "PHP Linode SDK v0.0.1",
             );
 
-        $response = $this->send();
+        $this->setFakeData();
+
+        $response = $this->getResponse();
 
         if ($response->failed()) {
             throw $response->toException();
@@ -48,5 +51,29 @@ class LinodeRequest extends Request
     public function baseUrl(): string
     {
         return config('linode.endpoint') ?? $this->baseUrl;
+    }
+
+    public function getResponse()
+    {
+        return $this->send();
+    }
+
+    private function setFakeData()
+    {
+        if(config('linode.environment') === 'testing'){
+            $this->useFake = true;
+            $this->status = Http::OK;
+
+            $this->fakeData = $this->getFakeData();
+        }
+    }
+
+    private function getFakeData(): mixed
+    {
+        $method = strtolower($this->method);
+
+        $path = "tests/Fixtures/{$method}/{$this->path()}.json";
+
+        return (array)json_decode(file_get_contents(__DIR__."/../../$path"));
     }
 }

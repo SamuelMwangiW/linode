@@ -20,7 +20,7 @@ class InstanceFactory implements FactoryContract
                 disk: $data['specs']['disk'],
                 memory: $data['specs']['memory'],
                 vcpus: $data['specs']['vcpus'],
-                gpus: $data['specs']['gpus'],
+                gpus: $data['specs']['gpus'] ?? 0,
                 transfer: $data['specs']['transfer'],
             ),
             created: Carbon::parse($data['created']),

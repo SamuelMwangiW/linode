@@ -2,7 +2,7 @@
 
 namespace SamuelMwangiW\Linode\Tests;
 
-use Illuminate\Support\Facades\Http;
+use Carbon\Carbon;
 use Orchestra\Testbench\TestCase as Orchestra;
 use SamuelMwangiW\Linode\LinodeServiceProvider;
 
@@ -12,7 +12,7 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->fakeResponses();
+        $this->freezeTime();
     }
 
     protected function getPackageProviders($app)
@@ -25,13 +25,12 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
+        config()->set('linode.environment', 'testing');
         config()->set('linode.token', '644e87didyousurelyexpectmetocommittheactualkey2680ea1d15b8c5f122');
     }
 
-    private function fakeResponses()
+    private function freezeTime()
     {
-        Http::fake([
-            'https://api.linode.com/v4/account' => file_get_contents(__DIR__ . '/Fixtures/account.json'),
-        ]);
+        Carbon::setTestNow('2018-01-01T00:01:01');
     }
 }

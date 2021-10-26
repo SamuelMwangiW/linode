@@ -12,6 +12,7 @@ use SamuelMwangiW\Linode\Request\Instance\CreateRequest;
 use SamuelMwangiW\Linode\Request\Instance\DeleteRequest;
 use SamuelMwangiW\Linode\Request\Instance\GetRequest;
 use SamuelMwangiW\Linode\Request\Instance\ListRequest;
+use SamuelMwangiW\Linode\Request\Instance\ShutdownRequest;
 use SamuelMwangiW\Linode\Request\Instance\UpdateRequest;
 
 class Instance
@@ -82,7 +83,10 @@ class Instance
             ->fetch();
     }
 
-    public function shutdown(mixed $value)
+    public function shutdown(mixed $linodeId)
     {
+        return ShutdownRequest::build()
+            ->setPath("instances/{$linodeId}/shutdown")
+            ->fetch();
     }
 }
