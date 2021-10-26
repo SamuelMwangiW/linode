@@ -1,11 +1,11 @@
-### linode-cli
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/samuelmwangiw/linode-cli.svg?style=flat-square)](https://packagist.org/packages/samuelmwangiw/linode-cli)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/samuelmwangiw/linode-cli/run-tests?label=tests)](https://github.com/samuelmwangiw/linode-cli/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/samuelmwangiw/linode-cli/Check%20&%20fix%20styling?label=code%20style)](https://github.com/samuelmwangiw/linode-cli/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/samuelmwangiw/linode-cli.svg?style=flat-square)](https://packagist.org/packages/samuelmwangiw/linode-cli)
+### linode client
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/samuelmwangiw/linode.svg?style=flat-square)](https://packagist.org/packages/samuelmwangiw/linode)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/samuelmwangiw/linode/run-tests?label=tests)](https://github.com/samuelmwangiw/linode/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/samuelmwangiw/linode/Check%20&%20fix%20styling?label=code%20style)](https://github.com/samuelmwangiw/linode/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/samuelmwangiw/linode.svg?style=flat-square)](https://packagist.org/packages/samuelmwangiw/linode)
 
 ---
-A Simple Linode cli built for Laravel with @JustSteveKing laravel-transporter package
+A Simple Linode client built for Laravel with @JustSteveKing laravel-transporter package
 
 ---
 
@@ -14,19 +14,19 @@ A Simple Linode cli built for Laravel with @JustSteveKing laravel-transporter pa
 You can install the package via composer:
 
 ```bash
-composer require samuelmwangiw/linode-cli
+composer require samuelmwangiw/linode
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="SamuelMwangiW\LinodeCli\LinodeCliServiceProvider" --tag="linode-cli-migrations"
+php artisan vendor:publish --provider="SamuelMwangiW\Linode\LinodeServiceProvider" --tag="linode-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="SamuelMwangiW\LinodeCli\LinodeCliServiceProvider" --tag="linode-cli-config"
+php artisan vendor:publish --provider="SamuelMwangiW\Linode\LinodeServiceProvider" --tag="linode-config"
 ```
 
 This is the contents of the published config file:
