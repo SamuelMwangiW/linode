@@ -60,7 +60,7 @@ class LinodeRequest extends Request
 
     private function setFakeData()
     {
-        if(config('linode.environment') === 'testing'){
+        if (config('linode.environment') === 'testing') {
             $this->useFake = true;
             $this->status = Http::OK;
 
