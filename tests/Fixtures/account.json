@@ -1,0 +1,35 @@
+{
+    "company": "mwangithegreat",
+    "email": "samuel@samuelmwangi.co.ke",
+    "first_name": "Samuel",
+    "last_name": "Mwangi",
+    "address_1": "P.O Box 123",
+    "address_2": "",
+    "city": "Nairobi",
+    "state": "Nairobi City",
+    "zip": "00100",
+    "country": "KE",
+    "phone": "",
+    "balance": -1.65,
+    "tax_id": "",
+    "credit_card": [
+        {
+            "last_four": "8023",
+            "expiry": "06/2023"
+        }
+    ],
+    "balance_uninvoiced": 13.81,
+    "active_since": "2017-08-19T09:18:33",
+    "capabilities": [
+        "Linodes",
+        "NodeBalancers",
+        "Block Storage",
+        "Object Storage",
+        "Kubernetes",
+        "Cloud Firewall",
+        "Vlans",
+        "Machine Images"
+    ],
+    "active_promotions": [],
+    "euuid": "D09103B1-20FE-11EA-B88C0CC47AEB2714"
+}
