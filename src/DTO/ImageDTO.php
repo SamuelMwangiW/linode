@@ -20,8 +20,7 @@ class ImageDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
         public ?string $expiry,
         public Carbon  $eol,
         public string  $status,
-    )
-    {
+    ) {
     }
 
     public function __toString(): string

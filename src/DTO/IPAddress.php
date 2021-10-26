@@ -6,8 +6,7 @@ class IPAddress
 {
     public function __construct(
         public string $ip
-    )
-    {
+    ) {
     }
 
     public function __toString(): string

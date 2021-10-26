@@ -15,9 +15,7 @@ class DiskDTO implements DTOContract
         public Carbon $updated,
         public string $filesystem,
         public int $size,
-    )
-    {
-
+    ) {
     }
 
     public function __toString(): string

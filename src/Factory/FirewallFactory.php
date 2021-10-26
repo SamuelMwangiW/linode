@@ -11,7 +11,6 @@ use SamuelMwangiW\Linode\Enum\FirewallRule;
 
 class FirewallFactory implements FactoryContract
 {
-
     public static function make(array $data): FirewallDTO
     {
         return new FirewallDTO(
@@ -22,7 +21,7 @@ class FirewallFactory implements FactoryContract
             status: $data['status'],
             inbound_rules: collect($data['rules']['inbound'])
                 ->map(
-                    fn(array $rule) => new FirewallRuleDTO(
+                    fn (array $rule) => new FirewallRuleDTO(
                         protocol: $rule['protocol'],
                         action: FirewallRule::from($rule['action']),
                         label: $rule['label'],

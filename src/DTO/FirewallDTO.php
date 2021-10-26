@@ -19,8 +19,7 @@ class FirewallDTO implements DTOContract
         public string     $inbound_policy,
         public string     $outbound_policy,
         public Collection $tags,
-    )
-    {
+    ) {
     }
 
     public function __toString(): string

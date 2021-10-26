@@ -3,7 +3,12 @@
 namespace SamuelMwangiW\Linode;
 
 use JetBrains\PhpStorm\Pure;
-use SamuelMwangiW\Linode\Domain\{Account, Billing, Image, Instance, Region, Firewall};
+use SamuelMwangiW\Linode\Domain\Account;
+use SamuelMwangiW\Linode\Domain\Billing;
+use SamuelMwangiW\Linode\Domain\Firewall;
+use SamuelMwangiW\Linode\Domain\Image;
+use SamuelMwangiW\Linode\Domain\Instance;
+use SamuelMwangiW\Linode\Domain\Region;
 
 class Linode
 {

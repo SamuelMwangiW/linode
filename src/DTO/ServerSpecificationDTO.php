@@ -13,8 +13,7 @@ class ServerSpecificationDTO implements DTOContract
         public int $gpus,
         public int $transfer,
         public ?int $network_out = null,
-    )
-    {
+    ) {
     }
 
     public function __toString(): string

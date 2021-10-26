@@ -3,13 +3,11 @@
 namespace SamuelMwangiW\Linode\Factory;
 
 use Carbon\Carbon;
-use SamuelMwangiW\Linode\Contracts\DTOContract;
 use SamuelMwangiW\Linode\Contracts\FactoryContract;
 use SamuelMwangiW\Linode\DTO\AccountDTO;
 
 class AccountFactory implements FactoryContract
 {
-
     public static function make(array $data): AccountDTO
     {
         return new AccountDTO(

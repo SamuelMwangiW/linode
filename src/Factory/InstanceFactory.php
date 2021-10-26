@@ -4,11 +4,12 @@ namespace SamuelMwangiW\Linode\Factory;
 
 use Carbon\Carbon;
 use SamuelMwangiW\Linode\Contracts\FactoryContract;
-use SamuelMwangiW\Linode\DTO\{InstanceDTO, IPAddress, ServerSpecificationDTO};
+use SamuelMwangiW\Linode\DTO\InstanceDTO;
+use SamuelMwangiW\Linode\DTO\IPAddress;
+use SamuelMwangiW\Linode\DTO\ServerSpecificationDTO;
 
 class InstanceFactory implements FactoryContract
 {
-
     public static function make(array $data): InstanceDTO
     {
         return new InstanceDTO(
@@ -25,7 +26,7 @@ class InstanceFactory implements FactoryContract
             created: Carbon::parse($data['created']),
             updated: Carbon::parse($data['updated']),
             type: $data['type'],
-            ips: collect($data['ipv4'])->map(fn($ip) => new IPAddress($ip)),
+            ips: collect($data['ipv4'])->map(fn ($ip) => new IPAddress($ip)),
             ipv6: $data['ipv6'],
             image: $data['image'],
             region: $data['region'],

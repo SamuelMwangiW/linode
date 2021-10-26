@@ -21,7 +21,7 @@ class Instance
         return ListRequest::build()
             ->fetch()
             ->collect('data')
-            ->map(fn($data) => InstanceFactory::make($data));
+            ->map(fn ($data) => InstanceFactory::make($data));
     }
 
     public function show($instance): InstanceDTO
@@ -40,7 +40,7 @@ class Instance
             ->setPath("linode/instances/$instance/disks")
             ->fetch()
             ->collect('data')
-            ->map(fn(array $disk) => DiskFactory::make($disk));
+            ->map(fn (array $disk) => DiskFactory::make($disk));
     }
 
     public function create($instance): InstanceDTO
@@ -53,7 +53,7 @@ class Instance
         return InstanceFactory::make($data);
     }
 
-    public function update(int $id,array $instance_details): InstanceDTO
+    public function update(int $id, array $instance_details): InstanceDTO
     {
         $data = UpdateRequest::build()
             ->setPath("linode/instances/$id")
@@ -64,7 +64,7 @@ class Instance
         return InstanceFactory::make($data);
     }
 
-    public function clone(int $id,array $instance_details): InstanceDTO
+    public function clone(int $id, array $instance_details): InstanceDTO
     {
         $data = CloneRequest::build()
             ->setPath("linode/instances/$id/clone")
@@ -84,6 +84,5 @@ class Instance
 
     public function shutdown(mixed $value)
     {
-
     }
 }

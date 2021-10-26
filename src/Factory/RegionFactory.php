@@ -17,7 +17,7 @@ class RegionFactory implements FactoryContract
             resolvers: collect(
                 explode(',', $data['resolvers']['ipv4'])
             )
-                ->map(fn($ip) => new IPAddress($ip)),
+                ->map(fn ($ip) => new IPAddress($ip)),
             capabilities: collect($data['capabilities']),
         );
     }

@@ -2,4 +2,6 @@
 
 namespace SamuelMwangiW\Linode\Exceptions;
 
-class CredentialsMissing extends \Exception {}
+class CredentialsMissing extends \Exception
+{
+}

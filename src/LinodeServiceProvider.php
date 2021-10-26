@@ -4,7 +4,6 @@ namespace SamuelMwangiW\Linode;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use SamuelMwangiW\Linode\Commands\LinodeCliCommand;
 
 class LinodeServiceProvider extends PackageServiceProvider
 {

@@ -9,7 +9,6 @@ use SamuelMwangiW\Linode\DTO\ImageDTO;
 
 class ImageFactory implements FactoryContract
 {
-
     public static function make(array $data): DTOContract
     {
         return new ImageDTO(

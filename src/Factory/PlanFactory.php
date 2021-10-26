@@ -9,7 +9,6 @@ use SamuelMwangiW\Linode\DTO\ServerSpecificationDTO;
 
 class PlanFactory implements FactoryContract
 {
-
     #[Pure]
     public static function make(array $plan): PlanDTO
     {

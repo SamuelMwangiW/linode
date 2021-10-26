@@ -2,7 +2,6 @@
 
 namespace SamuelMwangiW\Linode\DTO;
 
-
 use Illuminate\Support\Collection;
 
 class FirewallRuleDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
@@ -13,19 +12,15 @@ class FirewallRuleDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
         public string     $label,
         public Collection $addresses,
         public ?Collection $ports,
-    )
-    {
-
+    ) {
     }
 
-    public
-    function __toString(): string
+    public function __toString(): string
     {
         // TODO: Implement __toString() method.
     }
 
-    public
-    function __toArray(): array
+    public function __toArray(): array
     {
         // TODO: Implement __toArray() method.
     }

@@ -2,7 +2,6 @@
 
 namespace SamuelMwangiW\Linode\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Http;
 use Orchestra\Testbench\TestCase as Orchestra;
 use SamuelMwangiW\Linode\LinodeServiceProvider;
@@ -32,8 +31,7 @@ class TestCase extends Orchestra
     private function fakeResponses()
     {
         Http::fake([
-            'https://api.linode.com/v4/account' => file_get_contents(__DIR__ . '/Fixtures/account.json')
+            'https://api.linode.com/v4/account' => file_get_contents(__DIR__ . '/Fixtures/account.json'),
         ]);
     }
-
 }

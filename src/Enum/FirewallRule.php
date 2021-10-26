@@ -4,8 +4,8 @@ namespace SamuelMwangiW\Linode\Enum;
 
 class FirewallRule
 {
-    const ACCEPT = 'ACCEPT';
-    const DROP = 'DROP';
+    public const ACCEPT = 'ACCEPT';
+    public const DROP = 'DROP';
 
     public static function from(string $rule): string
     {

@@ -14,8 +14,7 @@ class PlanDTO implements DTOContract
         public ServerSpecificationDTO $serverSpec,
         public string                 $class,
         public ?string                $successor,
-    )
-    {
+    ) {
     }
 
     public function __toString(): string

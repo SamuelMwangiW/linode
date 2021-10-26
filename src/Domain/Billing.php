@@ -12,6 +12,6 @@ class Billing
         return PlansListRequest::build()
             ->fetch()
             ->collect('data')
-            ->map(fn(array $plan)=>PlanFactory::make($plan));
+            ->map(fn (array $plan) => PlanFactory::make($plan));
     }
 }

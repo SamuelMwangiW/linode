@@ -20,7 +20,7 @@ it('linode throws authentication exception when linode.token is set', function (
     ->throws(\Illuminate\Http\Client\RequestException::class, '{"errors": [{"reason": "Invalid Token"}]}');
 
 it('linode returns an account')
-    ->expect(fn()=>Linode::account())
+    ->expect(fn () => Linode::account())
         ->toBeInstanceOf(\SamuelMwangiW\Linode\DTO\AccountDTO::class)
         ->company->toBe('mwangithegreat')
         ->email->toBe('samuel@samuelmwangi.co.ke')

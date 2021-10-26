@@ -32,8 +32,7 @@ class RegionDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
         public string $status,
         public Collection $resolvers,
         public Collection $capabilities,
-    )
-    {
+    ) {
     }
 
     public function __toString(): string

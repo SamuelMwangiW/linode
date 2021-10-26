@@ -8,7 +8,6 @@ use SamuelMwangiW\Linode\DTO\DiskDTO;
 
 class DiskFactory implements FactoryContract
 {
-
     public static function make(array $data): DiskDTO
     {
         return new DiskDTO(

@@ -23,8 +23,7 @@ class InstanceDTO implements DTOContract
         public string                 $hypervisor,
         public bool                   $watchdog_enabled,
         public array                  $tags,
-    )
-    {
+    ) {
     }
 
     public function __toString(): string

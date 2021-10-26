@@ -23,9 +23,9 @@ class AccountDTO implements DTOContract
         public float  $balance,
         public float  $uninvoiced,
         public Carbon $active_since,
-    )
-    {
+    ) {
     }
+
     public function __toString(): string
     {
         return json_encode($this);

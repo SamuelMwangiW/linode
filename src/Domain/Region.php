@@ -13,6 +13,6 @@ class Region
         return ListRequest::build()
             ->fetch()
             ->collect('data')
-            ->map(fn(array $region) => RegionFactory::make($region));
+            ->map(fn (array $region) => RegionFactory::make($region));
     }
 }
