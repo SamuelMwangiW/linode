@@ -14,10 +14,7 @@ class FirewallDTO implements DTOContract
         public Carbon     $created,
         public Carbon     $updated,
         public string     $status,
-        public Collection $inbound_rules,
-        public Collection $outbound_rules,
-        public string     $inbound_policy,
-        public string     $outbound_policy,
+        public FirewallRulesDTO $rules,
         public Collection $tags,
     ) {
     }
@@ -35,10 +32,7 @@ class FirewallDTO implements DTOContract
             'created' => $this->created,
             'updated' => $this->updated,
             'status' => $this->status,
-            'inbound_rules' => (array)$this->inbound_rules,
-            'outbound_rules' => (array)$this->outbound_rules,
-            'inbound_policy' => $this->inbound_policy,
-            'outbound_policy' => $this->outbound_policy,
+            'rules' => (array)$this->rules,
         ];
     }
 }

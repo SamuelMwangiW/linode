@@ -11,13 +11,29 @@ class LinodeRequest extends Request
 {
     protected string $method = 'GET';
 
-    protected array $data = [];
+    /**
+     * @throws \Illuminate\Http\Client\RequestException
+     * @throws CredentialsMissing
+     */
+    public function fetch(): Response
+    {
+        $this->checkIfTesting();
+
+        $this->authenticate();
+
+        $response = $this->send();
+
+        if ($response->failed()) {
+            throw $response->toException();
+        }
+
+        return $response;
+    }
 
     /**
      * @throws CredentialsMissing
-     * @throws \Illuminate\Http\Client\RequestException
      */
-    public function fetch(): Response
+    public function authenticate(): void
     {
         if (empty(config('linode.token'))) {
             throw new CredentialsMissing("Cannot authenticate to Linode without a token");
@@ -36,16 +52,6 @@ class LinodeRequest extends Request
             )->withUserAgent(
                 userAgent: "PHP Linode SDK v0.0.1",
             );
-
-        $this->setFakeData();
-
-        $response = $this->getResponse();
-
-        if ($response->failed()) {
-            throw $response->toException();
-        }
-
-        return $response;
     }
 
     public function baseUrl(): string
@@ -53,12 +59,7 @@ class LinodeRequest extends Request
         return config('linode.endpoint') ?? $this->baseUrl;
     }
 
-    public function getResponse()
-    {
-        return $this->send();
-    }
-
-    private function setFakeData()
+    private function checkIfTesting()
     {
         if (config('linode.environment') === 'testing') {
             $this->useFake = true;
@@ -74,6 +75,6 @@ class LinodeRequest extends Request
 
         $path = "tests/Fixtures/{$method}/{$this->path()}.json";
 
-        return (array)json_decode(file_get_contents(__DIR__."/../../$path"));
+        return (array)json_decode(file_get_contents(__DIR__ . "/../../$path"));
     }
 }
