@@ -44,7 +44,7 @@ class LinodeRequest extends Request
                 url: $this->baseUrl()
             )
             ->withToken(
-                token: config('linode.token'),
+                token: value(config('linode.token')),
             )->withHeaders(
                 headers: [
                     'Accept' => 'application/json',
