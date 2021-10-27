@@ -46,4 +46,9 @@ class ImageDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
             'status' => $this->status,
         ];
     }
+    
+    public function isPublic(): string
+    {
+         return $this->is_public ? 'Yes' : 'No';
+    }
 }
