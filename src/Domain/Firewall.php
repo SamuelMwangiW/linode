@@ -7,7 +7,10 @@ use Illuminate\Support\Collection;
 use JetBrains\PhpStorm\Pure;
 use SamuelMwangiW\Linode\DTO\FirewallDTO;
 use SamuelMwangiW\Linode\Factory\FirewallFactory;
-use SamuelMwangiW\Linode\Request\Firewall\{CreateRequest, DeleteRequest, ListRequest, ShowRequest};
+use SamuelMwangiW\Linode\Request\Firewall\CreateRequest;
+use SamuelMwangiW\Linode\Request\Firewall\DeleteRequest;
+use SamuelMwangiW\Linode\Request\Firewall\ListRequest;
+use SamuelMwangiW\Linode\Request\Firewall\ShowRequest;
 
 class Firewall
 {
@@ -22,7 +25,7 @@ class Firewall
         return ListRequest::build()
             ->fetch()
             ->collect('data')
-            ->map(fn(array $firewall) => FirewallFactory::make($firewall));
+            ->map(fn (array $firewall) => FirewallFactory::make($firewall));
     }
 
     public function show($firewallId): FirewallDTO

@@ -6,5 +6,4 @@ use SamuelMwangiW\Linode\Request\LinodeRequest;
 
 class ListRequest extends LinodeRequest
 {
-
 }

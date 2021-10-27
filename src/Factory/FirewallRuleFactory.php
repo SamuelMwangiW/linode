@@ -9,7 +9,6 @@ use SamuelMwangiW\Linode\Enum\FirewallRule;
 
 class FirewallRuleFactory implements FactoryContract
 {
-
     public static function make(array $data): FirewallRuleDTO
     {
         return new FirewallRuleDTO(
