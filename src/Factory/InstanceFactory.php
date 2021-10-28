@@ -32,7 +32,7 @@ class InstanceFactory implements FactoryContract
             region: $data['region'],
             hypervisor: $data['hypervisor'],
             watchdog_enabled: $data['watchdog_enabled'],
-            tags: $data['tags'],
+            tags: collect($data['tags']),
         );
     }
 }
