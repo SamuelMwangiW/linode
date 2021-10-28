@@ -22,7 +22,7 @@ class InstanceDTO implements DTOContract
         public string                 $region,
         public string                 $hypervisor,
         public bool                   $watchdog_enabled,
-        public array                  $tags,
+        public Collection             $tags,
     ) {
     }
 
