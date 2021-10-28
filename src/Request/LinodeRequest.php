@@ -36,7 +36,7 @@ class LinodeRequest extends Request
     public function authenticate(): void
     {
         $token = value(config('linode.token'));
-        
+
         if (empty($token)) {
             throw new CredentialsMissing("Cannot authenticate to Linode without a token");
         }
