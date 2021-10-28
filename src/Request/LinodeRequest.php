@@ -35,7 +35,9 @@ class LinodeRequest extends Request
      */
     public function authenticate(): void
     {
-        if (empty(config('linode.token'))) {
+        $token = value(config('linode.token'));
+        
+        if (empty($token)) {
             throw new CredentialsMissing("Cannot authenticate to Linode without a token");
         }
 
@@ -44,7 +46,7 @@ class LinodeRequest extends Request
                 url: $this->baseUrl()
             )
             ->withToken(
-                token: value(config('linode.token')),
+                token: $token,
             )->withHeaders(
                 headers: [
                     'Accept' => 'application/json',
