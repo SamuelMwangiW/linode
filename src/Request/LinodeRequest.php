@@ -41,7 +41,8 @@ class LinodeRequest extends Request
             throw new CredentialsMissing("Cannot authenticate to Linode without a token");
         }
 
-        $this->request
+        $this
+            ->getRequest()
             ->baseUrl(
                 url: $this->baseUrl()
             )
