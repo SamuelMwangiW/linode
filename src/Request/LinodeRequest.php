@@ -48,11 +48,8 @@ class LinodeRequest extends Request
             )
             ->withToken(
                 token: $token,
-            )->withHeaders(
-                headers: [
-                    'Accept' => 'application/json',
-                ]
-            )->withUserAgent(
+            )->acceptJson()
+            ->withUserAgent(
                 userAgent: "PHP Linode SDK v0.0.1",
             );
     }
