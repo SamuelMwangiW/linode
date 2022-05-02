@@ -12,7 +12,7 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->freezeTime();
+        $this->travelTo('2018-01-01T00:01:01');
     }
 
     protected function getPackageProviders($app): array
@@ -26,10 +26,5 @@ class TestCase extends Orchestra
     {
         config()->set('linode.environment', 'testing');
         config()->set('linode.token', '644e87didyousurelyexpectmetocommittheactualkey2680ea1d15b8c5f122');
-    }
-
-    private function freezeTime(): void
-    {
-        Carbon::setTestNow('2018-01-01T00:01:01');
     }
 }
