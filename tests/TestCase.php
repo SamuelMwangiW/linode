@@ -2,7 +2,6 @@
 
 namespace SamuelMwangiW\Linode\Tests;
 
-use Carbon\Carbon;
 use Orchestra\Testbench\TestCase as Orchestra;
 use SamuelMwangiW\Linode\LinodeServiceProvider;
 
