@@ -12,7 +12,7 @@ class PlanDTO implements DTOContract
         public string $id,
         public string $label,
         public float $hourly_price,
-        public int $monthly_price,
+        public float $monthly_price,
         public ServerSpecificationDTO $serverSpec,
         public string $class,
         public ?string $successor,
