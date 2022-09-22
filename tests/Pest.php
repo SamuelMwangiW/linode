@@ -22,6 +22,9 @@ function fakeSaloonRequest(string $request): void
         Requests\Instance\CloneRequest::class => 'post/linode/instances/31293947/clone',
         Requests\Instance\DeleteRequest::class => 'delete/linode/instances/31294599',
         Requests\Instance\ShutdownRequest::class => 'post/linode/instances/31293947/shutdown',
+        Requests\Images\CreateRequest::class => 'post/images',
+        Requests\Images\ListRequest::class => 'get/images',
+        Requests\Images\ShowRequest::class => 'get/images/linode/ubuntu20.04',
     ];
 
     if (!array_key_exists($request, $fixtures)) {
