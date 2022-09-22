@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SamuelMwangiW\Linode\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
+use Sammyjo20\SaloonLaravel\SaloonServiceProvider;
 use SamuelMwangiW\Linode\LinodeServiceProvider;
 
 class TestCase extends Orchestra
@@ -20,6 +21,7 @@ class TestCase extends Orchestra
     {
         return [
             LinodeServiceProvider::class,
+            SaloonServiceProvider::class,
         ];
     }
 
