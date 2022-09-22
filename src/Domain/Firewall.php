@@ -9,10 +9,10 @@ use Illuminate\Support\Collection;
 use JetBrains\PhpStorm\Pure;
 use SamuelMwangiW\Linode\DTO\FirewallDTO;
 use SamuelMwangiW\Linode\Factory\FirewallFactory;
-use SamuelMwangiW\Linode\Request\Firewall\CreateRequest;
-use SamuelMwangiW\Linode\Request\Firewall\DeleteRequest;
-use SamuelMwangiW\Linode\Request\Firewall\ListRequest;
-use SamuelMwangiW\Linode\Request\Firewall\ShowRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Firewall\CreateRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Firewall\DeleteRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Firewall\ListRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Firewall\ShowRequest;
 
 class Firewall
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SamuelMwangiW\Linode\Request\Images;
+namespace SamuelMwangiW\Linode\Transporter\Request\Images;
 
-use SamuelMwangiW\Linode\Request\LinodeRequest;
+use SamuelMwangiW\Linode\Transporter\Request\LinodeRequest;
 
 class CreateRequest extends LinodeRequest
 {

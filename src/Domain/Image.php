@@ -7,9 +7,9 @@ namespace SamuelMwangiW\Linode\Domain;
 use Illuminate\Support\Collection;
 use SamuelMwangiW\Linode\Contracts\DTOContract;
 use SamuelMwangiW\Linode\Factory\ImageFactory;
-use SamuelMwangiW\Linode\Request\Images\CreateRequest;
-use SamuelMwangiW\Linode\Request\Images\ListRequest;
-use SamuelMwangiW\Linode\Request\Images\ShowRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Images\CreateRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Images\ListRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Images\ShowRequest;
 
 class Image
 {

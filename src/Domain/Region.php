@@ -6,7 +6,7 @@ namespace SamuelMwangiW\Linode\Domain;
 
 use Illuminate\Support\Collection;
 use SamuelMwangiW\Linode\Factory\RegionFactory;
-use SamuelMwangiW\Linode\Request\Regions\ListRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Regions\ListRequest;
 
 class Region
 {

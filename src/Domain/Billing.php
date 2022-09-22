@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SamuelMwangiW\Linode\Domain;
 
 use SamuelMwangiW\Linode\Factory\PlanFactory;
-use SamuelMwangiW\Linode\Request\Billing\PlansListRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Billing\PlansListRequest;
 
 class Billing
 {

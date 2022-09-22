@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SamuelMwangiW\Linode\Request;
+namespace SamuelMwangiW\Linode\Transporter\Request;
 
 use Illuminate\Http\Client\Response;
 use JustSteveKing\StatusCode\Http;

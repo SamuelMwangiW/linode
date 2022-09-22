@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SamuelMwangiW\Linode\Request\Instance;
+namespace SamuelMwangiW\Linode\Transporter\Request\Firewall;
 
-use SamuelMwangiW\Linode\Request\LinodeRequest;
+use SamuelMwangiW\Linode\Transporter\Request\LinodeRequest;
 
 class DeleteRequest extends LinodeRequest
 {

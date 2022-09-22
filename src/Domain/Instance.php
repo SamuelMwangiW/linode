@@ -9,13 +9,13 @@ use Illuminate\Support\Collection;
 use SamuelMwangiW\Linode\DTO\InstanceDTO;
 use SamuelMwangiW\Linode\Factory\DiskFactory;
 use SamuelMwangiW\Linode\Factory\InstanceFactory;
-use SamuelMwangiW\Linode\Request\Instance\CloneRequest;
-use SamuelMwangiW\Linode\Request\Instance\CreateRequest;
-use SamuelMwangiW\Linode\Request\Instance\DeleteRequest;
-use SamuelMwangiW\Linode\Request\Instance\GetRequest;
-use SamuelMwangiW\Linode\Request\Instance\ListRequest;
-use SamuelMwangiW\Linode\Request\Instance\ShutdownRequest;
-use SamuelMwangiW\Linode\Request\Instance\UpdateRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Instance\CloneRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Instance\CreateRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Instance\DeleteRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Instance\GetRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Instance\ListRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Instance\ShutdownRequest;
+use SamuelMwangiW\Linode\Transporter\Request\Instance\UpdateRequest;
 
 class Instance
 {

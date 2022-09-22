@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SamuelMwangiW\Linode\Request\Billing;
+namespace SamuelMwangiW\Linode\Transporter\Request\Billing;
 
-use SamuelMwangiW\Linode\Request\LinodeRequest;
+use SamuelMwangiW\Linode\Transporter\Request\LinodeRequest;
 
 class PlansListRequest extends LinodeRequest
 {
