@@ -28,6 +28,5 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app): void
     {
         config()->set('linode.environment', 'testing');
-        config()->set('linode.token', '644e87didyousurelyexpectmetocommittheactualkey2680ea1d15b8c5f122');
     }
 }

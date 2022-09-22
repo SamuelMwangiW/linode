@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-dataset('instance-id', [31293947]);
-dataset('delete-instance-id', [31294599]);
+dataset('instance-id', [38948459]);
+dataset('delete-instance-id', [38948357]);
 dataset('image-id', ['linode/ubuntu20.04']);
 dataset(
     'disk',

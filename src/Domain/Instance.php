@@ -4,53 +4,55 @@ declare(strict_types=1);
 
 namespace SamuelMwangiW\Linode\Domain;
 
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
+use Sammyjo20\Saloon\Http\SaloonResponse;
 use SamuelMwangiW\Linode\DTO\InstanceDTO;
 use SamuelMwangiW\Linode\Factory\DiskFactory;
 use SamuelMwangiW\Linode\Factory\InstanceFactory;
-use SamuelMwangiW\Linode\Transporter\Request\Instance\CloneRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Instance\CreateRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Instance\DeleteRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Instance\GetRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Instance\ListRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Instance\ShutdownRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Instance\UpdateRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\DisksRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\CloneRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\CreateRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\DeleteRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\GetRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\ListRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\ShutdownRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\UpdateRequest;
 
 class Instance
 {
     public function list(): Collection
     {
-        return ListRequest::build()
-            ->fetch()
+        return ListRequest::make()
+            ->send()
+            ->throw()
             ->collect('data')
-            ->map(fn ($data) => InstanceFactory::make($data));
+            ->map(fn($data) => InstanceFactory::make($data));
     }
 
-    public function show($instance): InstanceDTO
+    public function show(string|int $instance): InstanceDTO
     {
-        $data = GetRequest::build()
-            ->setPath("linode/instances/$instance")
-            ->fetch()
+        $data = GetRequest::make($instance)
+            ->send()
+            ->throw()
             ->json();
 
         return InstanceFactory::make($data);
     }
 
-    public function disks($instance): Collection
+    public function disks(string|int $instance): Collection
     {
-        return GetRequest::build()
-            ->setPath("linode/instances/$instance/disks")
-            ->fetch()
+        return DisksRequest::make($instance)
+            ->send()
+            ->throw()
             ->collect('data')
-            ->map(fn (array $disk) => DiskFactory::make($disk));
+            ->map(fn(array $disk) => DiskFactory::make($disk));
     }
 
-    public function create($instance): InstanceDTO
+    public function create(array $instance): InstanceDTO
     {
-        $data = CreateRequest::build()
-            ->withData($instance)
-            ->fetch()
+        $data = CreateRequest::make($instance)
+            ->send()
+            ->throw()
             ->json();
 
         return InstanceFactory::make($data);
@@ -58,10 +60,9 @@ class Instance
 
     public function update(int $id, array $instance_details): InstanceDTO
     {
-        $data = UpdateRequest::build()
-            ->setPath("linode/instances/$id")
-            ->withData($instance_details)
-            ->fetch()
+        $data = UpdateRequest::make($id,$instance_details)
+            ->send()
+            ->throw()
             ->json();
 
         return InstanceFactory::make($data);
@@ -69,26 +70,25 @@ class Instance
 
     public function clone(int $id, array $instance_details): InstanceDTO
     {
-        $data = CloneRequest::build()
-            ->setPath("linode/instances/$id/clone")
-            ->withData($instance_details)
-            ->fetch()
+        $data = CloneRequest::make($id,$instance_details)
+            ->send()
+            ->throw()
             ->json();
 
         return InstanceFactory::make($data);
     }
 
-    public function destroy(mixed $id): Response
+    public function destroy(mixed $id): SaloonResponse
     {
-        return DeleteRequest::build()
-            ->setPath("linode/instances/$id")
-            ->fetch();
+        return DeleteRequest::make($id)
+            ->send()
+            ->throw();
     }
 
-    public function shutdown(mixed $linodeId)
+    public function shutdown(mixed $linodeId): SaloonResponse
     {
-        return ShutdownRequest::build()
-            ->setPath("instances/{$linodeId}/shutdown")
-            ->fetch();
+        return ShutdownRequest::make($linodeId)
+            ->send()
+            ->throw();
     }
 }

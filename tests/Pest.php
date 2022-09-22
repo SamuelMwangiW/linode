@@ -14,10 +14,18 @@ function fakeSaloonRequest(string $request): void
     $fixtures = [
         Requests\Regions\ListRequest::class => 'get/regions',
         Requests\Billing\PlansListRequest::class => 'get/linode/types',
+        Requests\Instance\DisksRequest::class => 'get/linode/instances/31293947/disks',
+        Requests\Instance\GetRequest::class => 'get/linode/instances/31293947',
+        Requests\Instance\ListRequest::class => 'get/linode/instances',
+        Requests\Instance\CreateRequest::class => 'post/linode/instances',
+        Requests\Instance\UpdateRequest::class => 'put/linode/instances/31293947',
+        Requests\Instance\CloneRequest::class => 'post/linode/instances/31293947/clone',
+        Requests\Instance\DeleteRequest::class => 'delete/linode/instances/31294599',
+        Requests\Instance\ShutdownRequest::class => 'post/linode/instances/31293947/shutdown',
     ];
 
     if (!array_key_exists($request, $fixtures)) {
-        return;
+        throw new RuntimeException("{$request}/fixture mapping is missing");
     }
 
     $path = __DIR__ . "/Fixtures/{$fixtures[$request]}.json";
