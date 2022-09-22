@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use SamuelMwangiW\Linode\DTO\DiskDTO;
@@ -66,7 +68,6 @@ it('destroys an instance')
     ->markAsRisky()
     ->expect(fn ($instance) => Linode::instance()->destroy(value($instance)))
     ->status()->toBe(200);
-
 
 it('shuts down an instance')
     ->with('instance-id')

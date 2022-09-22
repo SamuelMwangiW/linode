@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\Request\Firewall\Rules;
 
 use SamuelMwangiW\Linode\Request\LinodeRequest;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\DTO;
 
 use Carbon\Carbon;
@@ -9,20 +11,20 @@ use SamuelMwangiW\Linode\Contracts\DTOContract;
 class InstanceDTO implements DTOContract
 {
     public function __construct(
-        public int                    $id,
-        public string                 $label,
-        public string                 $status,
+        public int $id,
+        public string $label,
+        public string $status,
         public ServerSpecificationDTO $specification,
-        public Carbon                 $created,
-        public Carbon                 $updated,
-        public string                 $type,
-        public Collection             $ips,
-        public string                 $ipv6,
-        public string                 $image,
-        public string                 $region,
-        public string                 $hypervisor,
-        public bool                   $watchdog_enabled,
-        public Collection             $tags,
+        public Carbon $created,
+        public Carbon $updated,
+        public string $type,
+        public Collection $ips,
+        public string $ipv6,
+        public string $image,
+        public string $region,
+        public string $hypervisor,
+        public bool $watchdog_enabled,
+        public Collection $tags,
     ) {
     }
 

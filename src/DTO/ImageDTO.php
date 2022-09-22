@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\DTO;
 
 use Carbon\Carbon;
@@ -7,19 +9,19 @@ use Carbon\Carbon;
 class ImageDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
 {
     public function __construct(
-        public string  $id,
-        public string  $label,
-        public bool    $deprecated,
-        public int     $size,
-        public Carbon  $created,
-        public Carbon  $updated,
-        public string  $type,
-        public bool    $is_public,
-        public ?string  $created_by,
-        public ?string  $vendor,
+        public string $id,
+        public string $label,
+        public bool $deprecated,
+        public int $size,
+        public Carbon $created,
+        public Carbon $updated,
+        public string $type,
+        public bool $is_public,
+        public ?string $created_by,
+        public ?string $vendor,
         public ?string $expiry,
-        public Carbon  $eol,
-        public ?string  $status,
+        public Carbon $eol,
+        public ?string $status,
     ) {
     }
 

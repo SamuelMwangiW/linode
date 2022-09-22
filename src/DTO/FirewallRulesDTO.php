@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\DTO;
 
 use Illuminate\Support\Collection;
@@ -9,9 +11,9 @@ class FirewallRulesDTO implements DTOContract
 {
     public function __construct(
         public Collection $inbound,
-        public string     $inbound_policy,
+        public string $inbound_policy,
         public Collection $outbound,
-        public string     $outbound_policy,
+        public string $outbound_policy,
     ) {
     }
 

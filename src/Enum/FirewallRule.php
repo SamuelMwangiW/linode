@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\Enum;
 
 class FirewallRule
 {
     public const ACCEPT = 'ACCEPT';
+
     public const DROP = 'DROP';
 
     public static function from(string $rule): string

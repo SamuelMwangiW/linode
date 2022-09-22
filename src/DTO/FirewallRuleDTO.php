@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\DTO;
 
 use Illuminate\Support\Collection;
@@ -7,9 +9,9 @@ use Illuminate\Support\Collection;
 class FirewallRuleDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
 {
     public function __construct(
-        public string     $protocol,
-        public string     $action,
-        public string     $label,
+        public string $protocol,
+        public string $action,
+        public string $label,
         public Collection $addresses,
         public ?Collection $ports,
     ) {

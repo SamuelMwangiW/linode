@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\DTO;
 
 use Carbon\Carbon;
@@ -20,8 +22,8 @@ class AccountDTO implements DTOContract
         public string $zip,
         public string $country,
         public string $phone,
-        public float  $balance,
-        public float  $uninvoiced,
+        public float $balance,
+        public float $uninvoiced,
         public Carbon $active_since,
     ) {
     }

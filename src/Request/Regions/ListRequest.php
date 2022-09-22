@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\Request\Regions;
 
 use SamuelMwangiW\Linode\Request\LinodeRequest;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use SamuelMwangiW\Linode\DTO\AccountDTO;
 use SamuelMwangiW\Linode\Exceptions\CredentialsMissing;
 use SamuelMwangiW\Linode\Linode;

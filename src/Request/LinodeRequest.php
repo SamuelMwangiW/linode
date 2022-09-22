@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\Request;
 
 use Illuminate\Http\Client\Response;
@@ -38,7 +40,7 @@ class LinodeRequest extends Request
         $token = value(config('linode.token'));
 
         if (empty($token)) {
-            throw new CredentialsMissing("Cannot authenticate to Linode without a token");
+            throw new CredentialsMissing('Cannot authenticate to Linode without a token');
         }
 
         $this
@@ -50,7 +52,7 @@ class LinodeRequest extends Request
                 token: $token,
             )->acceptJson()
             ->withUserAgent(
-                userAgent: "PHP Linode SDK v0.0.1",
+                userAgent: 'PHP Linode SDK v0.0.1',
             );
     }
 
@@ -75,6 +77,6 @@ class LinodeRequest extends Request
 
         $path = "tests/Fixtures/{$method}/{$this->path()}.json";
 
-        return (array)json_decode(file_get_contents(__DIR__ . "/../../$path"));
+        return (array) json_decode(file_get_contents(__DIR__."/../../$path"));
     }
 }

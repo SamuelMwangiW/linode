@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 dataset('instance-id', [31293947]);
 dataset('delete-instance-id', [31294599]);
 dataset('image-id', ['linode/ubuntu20.04']);
@@ -21,7 +23,7 @@ dataset('instance', [
         'root_pass' => 'F@k3S3cur3Pas5w0rd@($!^',
         'type' => 'g6-nanode-1',
         'watchdog_enabled' => true,
-        'tags' => ['linode-sdk','test'],
+        'tags' => ['linode-sdk', 'test'],
     ],
 ]);
 
@@ -35,13 +37,13 @@ dataset('instance-clone', [
         'label' => 'pest-clone-'.random_int(10, 99),
         'root_pass' => 'F@k3S3cur3Pas5w0rd@($!^',
         'type' => 'g6-nanode-1',
-        'tags' => ['linode-sdk','cloned'],
+        'tags' => ['linode-sdk', 'cloned'],
     ],
 ]);
 
 dataset('instance-update', [
     fn () => [
         'label' => 'pest-test-updated-'.random_int(10, 99),
-        'tags' => ['updated','test','linode-sdk'],
+        'tags' => ['updated', 'test', 'linode-sdk'],
     ],
 ]);
