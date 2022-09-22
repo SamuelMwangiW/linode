@@ -77,6 +77,6 @@ class LinodeRequest extends Request
 
         $path = "tests/Fixtures/{$method}/{$this->path()}.json";
 
-        return (array) json_decode(file_get_contents(__DIR__."/../../$path"));
+        return (array) json_decode(file_get_contents(__DIR__."/../../../$path"));
     }
 }
