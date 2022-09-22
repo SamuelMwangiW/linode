@@ -11,8 +11,8 @@ class PlanDTO implements DTOContract
     public function __construct(
         public string $id,
         public string $label,
-        public string $hourly_price,
-        public string $monthly_price,
+        public float $hourly_price,
+        public int $monthly_price,
         public ServerSpecificationDTO $serverSpec,
         public string $class,
         public ?string $successor,
