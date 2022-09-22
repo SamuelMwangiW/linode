@@ -13,6 +13,7 @@ function fakeSaloonRequest(string $request): void
 {
     $fixtures = [
         Requests\Regions\ListRequest::class => 'get/regions',
+        Requests\Billing\PlansListRequest::class => 'get/linode/types',
     ];
 
     if (!array_key_exists($request, $fixtures)) {
