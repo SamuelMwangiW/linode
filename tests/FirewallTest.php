@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use JustSteveKing\StatusCode\Http;
 use SamuelMwangiW\Linode\DTO\FirewallDTO;
 use SamuelMwangiW\Linode\DTO\FirewallRulesDTO;
 use SamuelMwangiW\Linode\Linode;
@@ -24,7 +23,7 @@ it('deletes a firewall by id')
     ->tap(fn()=>fakeSaloonRequest(Firewall\DeleteRequest::class))
     ->with('delete-id')
     ->expect(fn ($firewallId) => Linode::firewall()->destroy($firewallId))
-    ->status()->toBe(Http::OK);
+    ->status()->toBe(200);
 
 it('gets the firewall rules')
     ->tap(fn()=>fakeSaloonRequest(Firewall\Rules\ListRequest::class))
