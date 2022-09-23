@@ -2,6 +2,12 @@
 
 All notable changes to `linode-cli` will be documented in this file.
 
+## v2.1.1 - 2022-09-23
+
+Allow `config('linode.token')` to be a callback in e0e6a16193efc25f081546177cfce08f7c94e33d
+
+**Full Changelog**: https://github.com/SamuelMwangiW/linode/compare/v2.1.0...v2.1.1
+
 ## v2.1.0 - 2022-09-23
 
 - Remove static from methods in `SamuelMwangiW\Linode\Linode`. `__callStatic` has been introduced to avoid breaking changes.
