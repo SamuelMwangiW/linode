@@ -15,7 +15,7 @@ class AuthenticatedConnector extends BaseConnector
      */
     public function defaultAuth(): AuthenticatorInterface
     {
-        $token = config('linode.token');
+        $token = value(config('linode.token'));
 
         if (blank($token)) {
             throw new CredentialsMissing();
