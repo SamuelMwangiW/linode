@@ -16,9 +16,4 @@ jobs:
         run: composer install
 
       - name: Run Laravel Pint
-        run: ./vendor/bin/pint -v
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Fix styling with Laravel 🍺
+        run: ./vendor/bin/pint --test
