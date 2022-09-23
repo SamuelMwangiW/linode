@@ -10,6 +10,14 @@ use SamuelMwangiW\Linode\Saloon\Requests\Firewall\Rules\ListRequest;
 
 class FirewallRule
 {
+    /**
+     * @param $firewallId
+     * @return FirewallRulesDTO
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ReflectionException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     */
     public function show($firewallId): FirewallRulesDTO
     {
         return FirewallRulesFactory::make(
