@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use SamuelMwangiW\Linode\Saloon\Requests;
 
 it('fakes requests', function ($requestClass, $fixture) {

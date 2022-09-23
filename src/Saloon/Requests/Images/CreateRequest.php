@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\Saloon\Requests\Images;
 
 use Sammyjo20\Saloon\Constants\Saloon;

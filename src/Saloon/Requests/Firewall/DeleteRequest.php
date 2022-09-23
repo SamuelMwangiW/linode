@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\Saloon\Requests\Firewall;
 
 use Sammyjo20\Saloon\Constants\Saloon;

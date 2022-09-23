@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SamuelMwangiW\Linode\Saloon\Requests;
 
 use Sammyjo20\Saloon\Constants\Saloon;
