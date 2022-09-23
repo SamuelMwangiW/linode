@@ -15,11 +15,21 @@ use SamuelMwangiW\Linode\Saloon\Requests\Firewall\ShowRequest;
 
 class Firewall
 {
+    /**
+     * @return FirewallRule
+     */
     public function rules(): FirewallRule
     {
         return new FirewallRule();
     }
 
+    /**
+     * @return Collection<FirewallDTO>
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ReflectionException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     */
     public function list(): Collection
     {
         return ListRequest::make()
@@ -29,6 +39,14 @@ class Firewall
             ->map(fn (array $firewall) => FirewallFactory::make($firewall));
     }
 
+    /**
+     * @param $firewallId
+     * @return FirewallDTO
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ReflectionException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     */
     public function show($firewallId): FirewallDTO
     {
         return FirewallFactory::make(
@@ -39,6 +57,14 @@ class Firewall
         );
     }
 
+    /**
+     * @param $data
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ReflectionException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     */
     public function create($data)
     {
         CreateRequest::make($data)
@@ -47,6 +73,14 @@ class Firewall
             ->collect()->dd();
     }
 
+    /**
+     * @param $firewallId
+     * @return SaloonResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ReflectionException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     */
     public function destroy($firewallId): SaloonResponse
     {
         return DeleteRequest::make($firewallId)

@@ -10,6 +10,13 @@ use SamuelMwangiW\Linode\Saloon\Requests\Account\GetRequest;
 
 class Account
 {
+    /**
+     * @return AccountDTO
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ReflectionException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     */
     public static function details(): AccountDTO
     {
         $response = GetRequest::make()

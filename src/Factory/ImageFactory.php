@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace SamuelMwangiW\Linode\Factory;
 
 use Carbon\Carbon;
-use SamuelMwangiW\Linode\Contracts\DTOContract;
 use SamuelMwangiW\Linode\Contracts\FactoryContract;
 use SamuelMwangiW\Linode\DTO\ImageDTO;
 
 class ImageFactory implements FactoryContract
 {
-    public static function make(array $data): DTOContract
+    public static function make(array $data): ImageDTO
     {
         return new ImageDTO(
             id: $data['id'],
