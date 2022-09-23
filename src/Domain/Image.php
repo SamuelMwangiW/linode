@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace SamuelMwangiW\Linode\Domain;
 
 use Illuminate\Support\Collection;
-use SamuelMwangiW\Linode\Contracts\DTOContract;
 use SamuelMwangiW\Linode\DTO\ImageDTO;
 use SamuelMwangiW\Linode\Factory\ImageFactory;
 use SamuelMwangiW\Linode\Saloon\Requests\Images\CreateRequest;

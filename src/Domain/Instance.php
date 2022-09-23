@@ -37,7 +37,7 @@ class Instance
             ->send()
             ->throw()
             ->collect('data')
-            ->map(fn($data) => InstanceFactory::make($data));
+            ->map(fn ($data) => InstanceFactory::make($data));
     }
 
     /**
@@ -72,7 +72,7 @@ class Instance
             ->send()
             ->throw()
             ->collect('data')
-            ->map(fn(array $disk) => DiskFactory::make($disk));
+            ->map(fn (array $disk) => DiskFactory::make($disk));
     }
 
     /**

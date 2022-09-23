@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace SamuelMwangiW\Linode\Factory;
 
 use Carbon\Carbon;
-use SamuelMwangiW\Linode\Contracts\DTOContract;
 use SamuelMwangiW\Linode\Contracts\FactoryContract;
 use SamuelMwangiW\Linode\DTO\ImageDTO;
 
