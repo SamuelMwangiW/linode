@@ -19,11 +19,17 @@ class FirewallRuleDTO implements \SamuelMwangiW\Linode\Contracts\DTOContract
 
     public function __toString(): string
     {
-        // TODO: Implement __toString() method.
+        return json_encode($this);
     }
 
     public function __toArray(): array
     {
-        // TODO: Implement __toArray() method.
+        return [
+            'protocol' => $this->protocol,
+            'action' => $this->action,
+            'label' => $this->label,
+            'addresses' => $this->addresses->toArray(),
+            'ports' => $this->ports?->toArray(),
+        ];
     }
 }

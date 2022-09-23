@@ -19,11 +19,16 @@ class FirewallRulesDTO implements DTOContract
 
     public function __toString(): string
     {
-        // TODO: Implement __toString() method.
+        return json_encode($this);
     }
 
     public function __toArray(): array
     {
-        // TODO: Implement __toArray() method.
+        return [
+            'inbound' => $this->inbound->toArray(),
+            'inbound_policy' => $this->inbound_policy,
+            'outbound' => $this->outbound->toArray(),
+            'outbound_policy' => $this->outbound_policy,
+        ];
     }
 }

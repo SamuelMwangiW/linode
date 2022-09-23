@@ -22,11 +22,19 @@ class DiskDTO implements DTOContract
 
     public function __toString(): string
     {
-        // TODO: Implement __toString() method.
+        return json_encode($this);
     }
 
     public function __toArray(): array
     {
-        // TODO: Implement __toArray() method.
+        return [
+            'id' => $this->id,
+            'status' => $this->status,
+            'label' => $this->label,
+            'created' => $this->created,
+            'updated' => $this->updated,
+            'filesystem' => $this->filesystem,
+            'size' => $this->size,
+        ];
     }
 }
