@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace SamuelMwangiW\Linode\Domain;
 
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Sammyjo20\Saloon\Http\SaloonResponse;
 use SamuelMwangiW\Linode\DTO\FirewallDTO;
@@ -27,7 +26,7 @@ class Firewall
             ->send()
             ->throw()
             ->collect('data')
-            ->map(fn(array $firewall) => FirewallFactory::make($firewall));
+            ->map(fn (array $firewall) => FirewallFactory::make($firewall));
     }
 
     public function show($firewallId): FirewallDTO

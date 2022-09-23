@@ -15,7 +15,7 @@ class AuthenticatedConnector extends BaseConnector
     {
         $token = config('linode.token');
 
-        if (blank($token)){
+        if (blank($token)) {
             throw new CredentialsMissing();
         }
 

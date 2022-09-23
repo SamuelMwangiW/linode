@@ -10,7 +10,7 @@ it('fakes requests', function ($requestClass, $fixture) {
         associative: true
     );
 
-    $receivedResponse = (new $requestClass)
+    $receivedResponse = (new $requestClass())
         ->send()
         ->throw()
         ->json();

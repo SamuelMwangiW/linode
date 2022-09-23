@@ -9,10 +9,10 @@ use Sammyjo20\Saloon\Http\SaloonResponse;
 use SamuelMwangiW\Linode\DTO\InstanceDTO;
 use SamuelMwangiW\Linode\Factory\DiskFactory;
 use SamuelMwangiW\Linode\Factory\InstanceFactory;
-use SamuelMwangiW\Linode\Saloon\Requests\Instance\DisksRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\CloneRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\CreateRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\DeleteRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Instance\DisksRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\GetRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\ListRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\ShutdownRequest;
@@ -26,7 +26,7 @@ class Instance
             ->send()
             ->throw()
             ->collect('data')
-            ->map(fn($data) => InstanceFactory::make($data));
+            ->map(fn ($data) => InstanceFactory::make($data));
     }
 
     public function show(string|int $instance): InstanceDTO
@@ -45,7 +45,7 @@ class Instance
             ->send()
             ->throw()
             ->collect('data')
-            ->map(fn(array $disk) => DiskFactory::make($disk));
+            ->map(fn (array $disk) => DiskFactory::make($disk));
     }
 
     public function create(array $instance): InstanceDTO
@@ -60,7 +60,7 @@ class Instance
 
     public function update(int $id, array $instance_details): InstanceDTO
     {
-        $data = UpdateRequest::make($id,$instance_details)
+        $data = UpdateRequest::make($id, $instance_details)
             ->send()
             ->throw()
             ->json();
@@ -70,7 +70,7 @@ class Instance
 
     public function clone(int $id, array $instance_details): InstanceDTO
     {
-        $data = CloneRequest::make($id,$instance_details)
+        $data = CloneRequest::make($id, $instance_details)
             ->send()
             ->throw()
             ->json();

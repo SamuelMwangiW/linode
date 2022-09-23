@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use Sammyjo20\Saloon\Http\MockResponse;
 use Sammyjo20\SaloonLaravel\Facades\Saloon;
-use SamuelMwangiW\Linode\Tests\TestCase;
 use SamuelMwangiW\Linode\Saloon\Requests;
+use SamuelMwangiW\Linode\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
 
@@ -32,13 +32,13 @@ function fakeSaloonRequest(string $request): void
         Requests\Firewall\Rules\ListRequest::class => 'get/networking/firewalls/29666/rules',
     ];
 
-    if (!array_key_exists($request, $fixtures)) {
+    if (! array_key_exists($request, $fixtures)) {
         throw new RuntimeException("{$request}/fixture mapping is missing");
     }
 
     $path = __DIR__ . "/Fixtures/{$fixtures[$request]}.json";
 
-    if (!file_exists($path)) {
+    if (! file_exists($path)) {
         throw new RuntimeException("Fixture {$path} for {$request} is missing");
     }
 

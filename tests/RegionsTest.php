@@ -7,7 +7,7 @@ use SamuelMwangiW\Linode\Linode;
 use SamuelMwangiW\Linode\Saloon\Requests;
 
 it('lists available regions')
-    ->tap(fn()=>fakeSaloonRequest(Requests\Regions\ListRequest::class))
+    ->tap(fn () => fakeSaloonRequest(Requests\Regions\ListRequest::class))
     ->expect(fn () => Linode::region()->list())
     ->toBeCollection()
     ->each->toBeInstanceOf(RegionDTO::class);

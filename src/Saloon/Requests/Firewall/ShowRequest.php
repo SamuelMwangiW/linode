@@ -8,8 +8,7 @@ class ShowRequest extends AuthenticatedRequest
 {
     public function __construct(
         private string $firewallId
-    )
-    {
+    ) {
     }
 
     public function defineEndpoint(): string

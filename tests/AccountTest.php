@@ -13,8 +13,8 @@ it('authenticate throws an exception when linode.config is not set', function ()
 })->throws(CredentialsMissing::class);
 
 it('linode returns an account')
-    ->tap(fn()=>fakeSaloonRequest(GetRequest::class))
-    ->expect(fn() => Linode::account())
+    ->tap(fn () => fakeSaloonRequest(GetRequest::class))
+    ->expect(fn () => Linode::account())
     ->toBeInstanceOf(AccountDTO::class)
     ->company->toBe('mwangithegreat')
     ->email->toBe('samuel@samuelmwangi.co.ke')

@@ -11,8 +11,7 @@ class DeleteRequest extends AuthenticatedRequest
 
     public function __construct(
         private string $instanceId
-    )
-    {
+    ) {
     }
 
     public function defineEndpoint(): string

@@ -8,8 +8,7 @@ class DisksRequest extends AuthenticatedRequest
 {
     public function __construct(
         private string|int $instanceId
-    )
-    {
+    ) {
     }
 
     public function defineEndpoint(): string

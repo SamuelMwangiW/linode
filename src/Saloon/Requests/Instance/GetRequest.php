@@ -8,8 +8,7 @@ class GetRequest extends AuthenticatedRequest
 {
     public function __construct(
         private string|int $id
-    )
-    {
+    ) {
     }
 
     public function defineEndpoint(): string

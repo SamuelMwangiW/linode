@@ -14,8 +14,7 @@ class CreateRequest extends AuthenticatedRequest
 
     public function __construct(
         private array $data,
-    )
-    {
+    ) {
     }
 
     public function defaultData(): array

@@ -11,8 +11,8 @@ use SamuelMwangiW\Linode\Linode;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance;
 
 it('linode returns a list of instances')
-    ->tap(fn() => fakeSaloonRequest(Instance\ListRequest::class))
-    ->expect(fn() => Linode::instance()->list())
+    ->tap(fn () => fakeSaloonRequest(Instance\ListRequest::class))
+    ->expect(fn () => Linode::instance()->list())
     ->toBeCollection()
     ->first()
     ->hypervisor->toBe('kvm')
@@ -21,9 +21,9 @@ it('linode returns a list of instances')
     ->first()->ips->toBeInstanceOf(Collection::class);
 
 it('returns an instance')
-    ->tap(fn() => fakeSaloonRequest(Instance\GetRequest::class))
+    ->tap(fn () => fakeSaloonRequest(Instance\GetRequest::class))
     ->with('instance-id')
-    ->expect(fn($instance) => Linode::instance()->show($instance))
+    ->expect(fn ($instance) => Linode::instance()->show($instance))
     ->toBeInstanceOf(InstanceDTO::class)
     ->hypervisor->toBe('kvm')
     ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
@@ -31,16 +31,16 @@ it('returns an instance')
     ->ips->toBeInstanceOf(Collection::class);
 
 it('returns an instance disks')
-    ->tap(fn() => fakeSaloonRequest(Instance\DisksRequest::class))
+    ->tap(fn () => fakeSaloonRequest(Instance\DisksRequest::class))
     ->with('instance-id')
-    ->expect(fn($instance) => Linode::instance()->disks($instance))
+    ->expect(fn ($instance) => Linode::instance()->disks($instance))
     ->toBeCollection()
     ->first()->toBeInstanceOf(DiskDTO::class);
 
 it('creates an instance')
-    ->tap(fn()=>fakeSaloonRequest(Instance\CreateRequest::class))
+    ->tap(fn () => fakeSaloonRequest(Instance\CreateRequest::class))
     ->with('instance')
-    ->expect(fn($instance) => Linode::instance()->create(value($instance)))
+    ->expect(fn ($instance) => Linode::instance()->create(value($instance)))
     ->toBeInstanceOf(InstanceDTO::class)
     ->hypervisor->toBe('kvm')
     ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
@@ -49,9 +49,9 @@ it('creates an instance')
     ->ips->toBeInstanceOf(Collection::class);
 
 it('updates an instance')
-    ->tap(fn()=>fakeSaloonRequest(Instance\UpdateRequest::class))
+    ->tap(fn () => fakeSaloonRequest(Instance\UpdateRequest::class))
     ->with('instance-id', 'instance-update')
-    ->expect(fn($instance, $updatedInstance) => Linode::instance()->update(value($instance), value($updatedInstance)))
+    ->expect(fn ($instance, $updatedInstance) => Linode::instance()->update(value($instance), value($updatedInstance)))
     ->toBeInstanceOf(InstanceDTO::class)
     ->hypervisor->toBe('kvm')
     ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
@@ -60,9 +60,9 @@ it('updates an instance')
     ->ips->toBeInstanceOf(Collection::class);
 
 it('clones an instance')
-    ->tap(fn()=>fakeSaloonRequest(Instance\CloneRequest::class))
+    ->tap(fn () => fakeSaloonRequest(Instance\CloneRequest::class))
     ->with('instance-id', 'instance-clone')
-    ->expect(fn($instance, $updatedInstance) => Linode::instance()->clone(value($instance), value($updatedInstance)))
+    ->expect(fn ($instance, $updatedInstance) => Linode::instance()->clone(value($instance), value($updatedInstance)))
     ->toBeInstanceOf(InstanceDTO::class)
     ->hypervisor->toBe('kvm')
     ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
@@ -71,14 +71,14 @@ it('clones an instance')
     ->ips->toBeInstanceOf(Collection::class);
 
 it('destroys an instance')
-    ->tap(fn()=>fakeSaloonRequest(Instance\DeleteRequest::class))
+    ->tap(fn () => fakeSaloonRequest(Instance\DeleteRequest::class))
     ->with('delete-instance-id')
 //    ->markAsRisky()
-    ->expect(fn($instance) => Linode::instance()->destroy(value($instance)))
+    ->expect(fn ($instance) => Linode::instance()->destroy(value($instance)))
     ->status()->toBe(200);
 
 it('shuts down an instance')
-    ->tap(fn()=>fakeSaloonRequest(Instance\ShutdownRequest::class))
+    ->tap(fn () => fakeSaloonRequest(Instance\ShutdownRequest::class))
     ->with('instance-id')
-    ->expect(fn($instance) => Linode::instance()->shutdown(value($instance)))
+    ->expect(fn ($instance) => Linode::instance()->shutdown(value($instance)))
     ->status()->toBe(200);
