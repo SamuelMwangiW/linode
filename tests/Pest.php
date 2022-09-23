@@ -12,6 +12,7 @@ uses(TestCase::class)->in(__DIR__);
 function fakeSaloonRequest(string $request): void
 {
     $fixtures = [
+        Requests\Account\GetRequest::class => 'get/account',
         Requests\Regions\ListRequest::class => 'get/regions',
         Requests\Billing\PlansListRequest::class => 'get/linode/types',
         Requests\Instance\DisksRequest::class => 'get/linode/instances/31293947/disks',
@@ -25,6 +26,10 @@ function fakeSaloonRequest(string $request): void
         Requests\Images\CreateRequest::class => 'post/images',
         Requests\Images\ListRequest::class => 'get/images',
         Requests\Images\ShowRequest::class => 'get/images/linode/ubuntu20.04',
+        Requests\Firewall\ListRequest::class => 'get/networking/firewalls',
+        Requests\Firewall\ShowRequest::class => 'get/networking/firewalls/29666',
+        Requests\Firewall\DeleteRequest::class => 'delete/networking/firewalls/29675',
+        Requests\Firewall\Rules\ListRequest::class => 'get/networking/firewalls/29666/rules',
     ];
 
     if (!array_key_exists($request, $fixtures)) {

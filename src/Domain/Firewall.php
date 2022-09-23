@@ -6,17 +6,16 @@ namespace SamuelMwangiW\Linode\Domain;
 
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
-use JetBrains\PhpStorm\Pure;
+use Sammyjo20\Saloon\Http\SaloonResponse;
 use SamuelMwangiW\Linode\DTO\FirewallDTO;
 use SamuelMwangiW\Linode\Factory\FirewallFactory;
-use SamuelMwangiW\Linode\Transporter\Request\Firewall\CreateRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Firewall\DeleteRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Firewall\ListRequest;
-use SamuelMwangiW\Linode\Transporter\Request\Firewall\ShowRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Firewall\CreateRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Firewall\DeleteRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Firewall\ListRequest;
+use SamuelMwangiW\Linode\Saloon\Requests\Firewall\ShowRequest;
 
 class Firewall
 {
-    #[Pure]
     public function rules(): FirewallRule
     {
         return new FirewallRule();
@@ -24,33 +23,35 @@ class Firewall
 
     public function list(): Collection
     {
-        return ListRequest::build()
-            ->fetch()
+        return ListRequest::make()
+            ->send()
+            ->throw()
             ->collect('data')
-            ->map(fn (array $firewall) => FirewallFactory::make($firewall));
+            ->map(fn(array $firewall) => FirewallFactory::make($firewall));
     }
 
     public function show($firewallId): FirewallDTO
     {
         return FirewallFactory::make(
-            data: ShowRequest::build()
-                ->setPath("networking/firewalls/{$firewallId}")
-                ->fetch()
+            data: ShowRequest::make($firewallId)
+                ->send()
+                ->throw()
                 ->json()
         );
     }
 
     public function create($data)
     {
-        CreateRequest::build()
-            ->withData($data)
-            ->fetch()->collect()->dd();
+        CreateRequest::make($data)
+            ->send()
+            ->throw()
+            ->collect()->dd();
     }
 
-    public function destroy($firewallId): Response
+    public function destroy($firewallId): SaloonResponse
     {
-        return DeleteRequest::build()
-            ->setPath("networking/firewalls/{$firewallId}")
-            ->fetch();
+        return DeleteRequest::make($firewallId)
+            ->send()
+            ->throw();
     }
 }
