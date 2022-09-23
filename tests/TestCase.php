@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SamuelMwangiW\Linode\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
+use Sammyjo20\SaloonLaravel\SaloonServiceProvider;
 use SamuelMwangiW\Linode\LinodeServiceProvider;
 
 class TestCase extends Orchestra
@@ -20,12 +21,12 @@ class TestCase extends Orchestra
     {
         return [
             LinodeServiceProvider::class,
+            SaloonServiceProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app): void
     {
         config()->set('linode.environment', 'testing');
-        config()->set('linode.token', '644e87didyousurelyexpectmetocommittheactualkey2680ea1d15b8c5f122');
     }
 }

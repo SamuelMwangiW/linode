@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-dataset('instance-id', [31293947]);
-dataset('delete-instance-id', [31294599]);
+dataset('instance-id', [38948459]);
+dataset('delete-instance-id', [38948357]);
 dataset('image-id', ['linode/ubuntu20.04']);
 dataset(
-    'disk',
-    [
+    name: 'disk',
+    dataset: [
         fn () => ['disk_id' => 61246188, 'label' => 'backup_disk', 'description' => 'Created in tests, delete'],
     ]
 );
@@ -19,8 +19,8 @@ dataset('instance', [
         'region' => 'eu-west',
         'image' => 'linode/ubuntu20.04',
         'private_ip' => true,
-        'label' => 'pest-test-'.random_int(10, 99),
-        'root_pass' => 'F@k3S3cur3Pas5w0rd@($!^',
+        'label' => 'pest-test-' . fake()->numerify(),
+        'root_pass' => fake()->password(),
         'type' => 'g6-nanode-1',
         'watchdog_enabled' => true,
         'tags' => ['linode-sdk', 'test'],
@@ -34,8 +34,8 @@ dataset('instance-clone', [
         'region' => 'eu-west',
         'image' => 'linode/ubuntu20.04',
         'private_ip' => true,
-        'label' => 'pest-clone-'.random_int(10, 99),
-        'root_pass' => 'F@k3S3cur3Pas5w0rd@($!^',
+        'label' => 'pest-clone-' . fake()->numerify(),
+        'root_pass' => fake()->password(),
         'type' => 'g6-nanode-1',
         'tags' => ['linode-sdk', 'cloned'],
     ],
@@ -43,7 +43,7 @@ dataset('instance-clone', [
 
 dataset('instance-update', [
     fn () => [
-        'label' => 'pest-test-updated-'.random_int(10, 99),
+        'label' => 'pest-test-updated-' . random_int(10, 99),
         'tags' => ['updated', 'test', 'linode-sdk'],
     ],
 ]);

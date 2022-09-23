@@ -30,8 +30,7 @@
         "disk": 81920,
         "memory": 4096,
         "transfer": 4000,
-        "vcpus": 2,
-        "gpus": 1
+        "vcpus": 2
     },
     "status": "running",
     "tags": [
