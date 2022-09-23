@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use SamuelMwangiW\Linode\DTO\AccountDTO;
 use SamuelMwangiW\Linode\Exceptions\CredentialsMissing;
-use SamuelMwangiW\Linode\Linode;
+use SamuelMwangiW\Linode\Facades\Linode;
 use SamuelMwangiW\Linode\Saloon\Requests\Account\GetRequest;
 
 it('authenticate throws an exception when linode.config is not set', function () {

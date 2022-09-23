@@ -44,7 +44,7 @@ return [
 @todo.
 
 ```php
-use SamuelMwangiW\Linode\Linode;
+use SamuelMwangiW\Linode\Facades\Linode;
 
 // Get your account details
 Linode::account();

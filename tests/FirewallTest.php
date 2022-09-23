@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use SamuelMwangiW\Linode\DTO\FirewallDTO;
 use SamuelMwangiW\Linode\DTO\FirewallRulesDTO;
-use SamuelMwangiW\Linode\Linode;
+use SamuelMwangiW\Linode\Facades\Linode;
 use SamuelMwangiW\Linode\Saloon\Requests\Firewall;
 
 it('gets the firewall list')

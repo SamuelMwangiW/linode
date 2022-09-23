@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 use SamuelMwangiW\Linode\DTO\DiskDTO;
 use SamuelMwangiW\Linode\DTO\InstanceDTO;
 use SamuelMwangiW\Linode\DTO\ServerSpecificationDTO;
-use SamuelMwangiW\Linode\Linode;
+use SamuelMwangiW\Linode\Facades\Linode;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance;
 
 it('linode returns a list of instances')

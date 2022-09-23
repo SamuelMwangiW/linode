@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use SamuelMwangiW\Linode\DTO\RegionDTO;
-use SamuelMwangiW\Linode\Linode;
+use SamuelMwangiW\Linode\Facades\Linode;
 use SamuelMwangiW\Linode\Saloon\Requests;
 
 it('lists available regions')

@@ -13,36 +13,44 @@ use SamuelMwangiW\Linode\Domain\Region;
 
 class Linode
 {
+    public static function __callStatic(string $name, array $arguments)
+    {
+        return (new static())->$name(...$arguments);
+    }
+
     /**
-     * @throws \Illuminate\Http\Client\RequestException
-     * @throws Exceptions\CredentialsMissing
+     * @return DTO\AccountDTO
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ReflectionException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
+     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
      */
-    public static function account(): DTO\AccountDTO
+    public function account(): DTO\AccountDTO
     {
         return Account::details();
     }
 
-    public static function images(): Image
+    public function images(): Image
     {
         return new Image();
     }
 
-    public static function instance(): Instance
+    public function instance(): Instance
     {
         return new Instance();
     }
 
-    public static function region(): Region
+    public function region(): Region
     {
         return new Region();
     }
 
-    public static function billing(): Billing
+    public function billing(): Billing
     {
         return new Billing();
     }
 
-    public static function firewall()
+    public function firewall(): Firewall
     {
         return new Firewall();
     }

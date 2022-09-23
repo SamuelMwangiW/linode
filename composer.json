@@ -34,7 +34,10 @@
     "autoload": {
         "psr-4": {
             "SamuelMwangiW\\Linode\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -57,7 +60,7 @@
                 "LinodeServiceProvider"
             ],
             "aliases": {
-                "Linode": "LinodeFacade"
+                "Linode": "SamuelMwangiW\\Linode\\Facades\\Linode"
             }
         }
     },
