@@ -2,6 +2,13 @@
 
 All notable changes to `linode-cli` will be documented in this file.
 
+## v2.1.2 - 2022-09-27
+
+- Fixed
+
+- Fixed `Class "LinodeServiceProvider" not found` error in 98347d235d44fbbe84558184af316b0a13d66516
+- **Full Changelog**: https://github.com/SamuelMwangiW/linode/compare/v2.1.1...v2.1.2
+
 ## v2.1.1 - 2022-09-23
 
 Allow `config('linode.token')` to be a callback in e0e6a16193efc25f081546177cfce08f7c94e33d
