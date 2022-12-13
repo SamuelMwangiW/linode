@@ -29,7 +29,7 @@ class IPAddress
     public function __construct(
         string $ip
     ) {
-        if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+        if (! filter_var($ip, FILTER_VALIDATE_IP)) {
             throw new \InvalidArgumentException('Invalid IP received');
         }
 
@@ -38,7 +38,7 @@ class IPAddress
 
     public function isV4(): bool
     {
-        return !$this->isV6();
+        return ! $this->isV6();
     }
 
     public function isV6(): bool
@@ -55,7 +55,7 @@ class IPAddress
 
     public function isPublic(): bool
     {
-        return !$this->isPrivate();
+        return ! $this->isPrivate();
     }
 
     public function __toString(): string

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use SamuelMwangiW\Linode\DTO\IPAddress;
 
 it('returns true for ipv4 addresses', function (string $ip) {

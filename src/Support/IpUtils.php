@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Symfony package.
  *
@@ -29,7 +31,7 @@ class IpUtils
      */
     public static function checkIp(string $requestIp, string|array $ips): bool
     {
-        if (!\is_array($ips)) {
+        if (! \is_array($ips)) {
             $ips = [$ips];
         }
 
@@ -59,7 +61,7 @@ class IpUtils
             return self::$checkedIps[$cacheKey];
         }
 
-        if (!filter_var($requestIp, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
+        if (! filter_var($requestIp, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
             return self::$checkedIps[$cacheKey] = false;
         }
 
@@ -104,7 +106,7 @@ class IpUtils
             return self::$checkedIps[$cacheKey];
         }
 
-        if (!((\extension_loaded('sockets') && \defined('AF_INET6')) || @inet_pton('::1'))) {
+        if (! ((\extension_loaded('sockets') && \defined('AF_INET6')) || @inet_pton('::1'))) {
             throw new \RuntimeException('Unable to check Ipv6. Check that PHP was not compiled with option "disable-ipv6".');
         }
 
@@ -126,7 +128,7 @@ class IpUtils
         $bytesAddr = unpack('n*', @inet_pton($address));
         $bytesTest = unpack('n*', @inet_pton($requestIp));
 
-        if (!$bytesAddr || !$bytesTest) {
+        if (! $bytesAddr || ! $bytesTest) {
             return self::$checkedIps[$cacheKey] = false;
         }
 
