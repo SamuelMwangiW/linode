@@ -37,38 +37,48 @@ it('returns an instance disks')
     ->toBeCollection()
     ->first()->toBeInstanceOf(DiskDTO::class);
 
-it('creates an instance')
-    ->tap(fn () => fakeSaloonRequest(Instance\CreateRequest::class))
-    ->with('instance')
-    ->expect(fn ($instance) => Linode::instance()->create(value($instance)))
-    ->toBeInstanceOf(InstanceDTO::class)
-    ->hypervisor->toBe('kvm')
-    ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
-    ->created->toBeInstanceOf(Carbon::class)
-    ->created->isToday()->toBeTrue()
-    ->ips->toBeInstanceOf(Collection::class);
+it('creates an instance',function (array $instance){
+    fakeSaloonRequest(Instance\CreateRequest::class);
 
-it('updates an instance')
-    ->tap(fn () => fakeSaloonRequest(Instance\UpdateRequest::class))
-    ->with('instance-id', 'instance-update')
-    ->expect(fn ($instance, $updatedInstance) => Linode::instance()->update(value($instance), value($updatedInstance)))
-    ->toBeInstanceOf(InstanceDTO::class)
-    ->hypervisor->toBe('kvm')
-    ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
-    ->created->toBeInstanceOf(Carbon::class)
-    ->created->isToday()->toBeTrue()
-    ->ips->toBeInstanceOf(Collection::class);
+    $result = Linode::instance()->create($instance);
 
-it('clones an instance')
-    ->tap(fn () => fakeSaloonRequest(Instance\CloneRequest::class))
-    ->with('instance-id', 'instance-clone')
-    ->expect(fn ($instance, $updatedInstance) => Linode::instance()->clone(value($instance), value($updatedInstance)))
-    ->toBeInstanceOf(InstanceDTO::class)
-    ->hypervisor->toBe('kvm')
-    ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
-    ->created->toBeInstanceOf(Carbon::class)
-    ->created->isToday()->toBeTrue()
-    ->ips->toBeInstanceOf(Collection::class);
+    expect($result)
+        ->toBeInstanceOf(InstanceDTO::class)
+        ->hypervisor->toBe('kvm')
+        ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
+        ->created->toBeInstanceOf(Carbon::class)
+        ->created->isToday()->toBeTrue()
+        ->ips->toBeInstanceOf(Collection::class);
+})->with('instance');
+
+it('updates an instance',function (int $instance, array $updatedInstance){
+    fakeSaloonRequest(Instance\UpdateRequest::class);
+
+    $result = Linode::instance()->update($instance, $updatedInstance);
+
+    expect($result)
+        ->toBeInstanceOf(InstanceDTO::class)
+        ->hypervisor->toBe('kvm')
+        ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
+        ->created->toBeInstanceOf(Carbon::class)
+        ->created->isToday()->toBeTrue()
+        ->ips->toBeInstanceOf(Collection::class);
+})
+    ->with('instance-id', 'instance-update');
+
+it('clones an instance',function (int $instance, array $updatedInstance){
+    fakeSaloonRequest(Instance\CloneRequest::class);
+
+    $result = Linode::instance()->clone($instance, $updatedInstance);
+
+    expect($result)
+        ->toBeInstanceOf(InstanceDTO::class)
+        ->hypervisor->toBe('kvm')
+        ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
+        ->created->toBeInstanceOf(Carbon::class)
+        ->created->isToday()->toBeTrue()
+        ->ips->toBeInstanceOf(Collection::class);
+})->with('instance-id', 'instance-clone');
 
 it('destroys an instance')
     ->tap(fn () => fakeSaloonRequest(Instance\DeleteRequest::class))
