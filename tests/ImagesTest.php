@@ -12,11 +12,13 @@ it('fetches available images')
     ->toBeCollection()
     ->first()->toBeInstanceOf(ImageDTO::class);
 
-it('creates an image from a disk')
-    ->tap(fn () => fakeSaloonRequest(Images\CreateRequest::class))
-    ->with('disk')
-    ->expect(fn ($disk) => Linode::images()->create(value($disk)))
-    ->toBeInstanceOf(ImageDTO::class);
+it('creates an image from a disk', function (array $id) {
+    fakeSaloonRequest(Images\CreateRequest::class);
+
+    $disk = Linode::images()->create($id);
+
+    expect($disk)->toBeInstanceOf(ImageDTO::class);
+})->with('disk');
 
 it('show an image')
     ->tap(fn () => fakeSaloonRequest(Images\ShowRequest::class))
