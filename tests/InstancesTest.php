@@ -37,7 +37,7 @@ it('returns an instance disks')
     ->toBeCollection()
     ->first()->toBeInstanceOf(DiskDTO::class);
 
-it('creates an instance',function (array $instance){
+it('creates an instance', function (array $instance) {
     fakeSaloonRequest(Instance\CreateRequest::class);
 
     $result = Linode::instance()->create($instance);
@@ -51,7 +51,7 @@ it('creates an instance',function (array $instance){
         ->ips->toBeInstanceOf(Collection::class);
 })->with('instance');
 
-it('updates an instance',function (int $instance, array $updatedInstance){
+it('updates an instance', function (int $instance, array $updatedInstance) {
     fakeSaloonRequest(Instance\UpdateRequest::class);
 
     $result = Linode::instance()->update($instance, $updatedInstance);
@@ -66,7 +66,7 @@ it('updates an instance',function (int $instance, array $updatedInstance){
 })
     ->with('instance-id', 'instance-update');
 
-it('clones an instance',function (int $instance, array $updatedInstance){
+it('clones an instance', function (int $instance, array $updatedInstance) {
     fakeSaloonRequest(Instance\CloneRequest::class);
 
     $result = Linode::instance()->clone($instance, $updatedInstance);

@@ -12,7 +12,7 @@ it('fetches available images')
     ->toBeCollection()
     ->first()->toBeInstanceOf(ImageDTO::class);
 
-it('creates an image from a disk',function (array $id){
+it('creates an image from a disk', function (array $id) {
     fakeSaloonRequest(Images\CreateRequest::class);
 
     $disk = Linode::images()->create($id);
