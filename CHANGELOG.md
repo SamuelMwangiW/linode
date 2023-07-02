@@ -6,7 +6,7 @@ All notable changes to `linode-cli` will be documented in this file.
 
 ### What's Changed
 
-- Laravel 10 by @SamuelMwangiW in https://github.com/SamuelMwangiW/linode/pull/16
+- Laravel 10 by @AlfioSaitta and @SamuelMwangiW in https://github.com/SamuelMwangiW/linode/pull/16
 
 **Full Changelog**: https://github.com/SamuelMwangiW/linode/compare/v2.1.3...v2.2.0
 
