@@ -89,7 +89,7 @@ Linode::instance()->show(654321);
 Linode::instance()->disks(654321);
 
 $instance = [
-    'authorized_keys' => ['ssh-rsa yourverysecuresshpublickeywhoseprivatekeywillneverbeleakedontheinternetandfileperssionsarepermanentlysetto0600='],
+    'authorized_keys' => ['ssh-rsa yourverysecuresshpublickeywhoseprivatekeywillneverbeleakedontheinternetandfilepermissionsarepermanentlysetto0600='],
     'authorized_users' => ['unicorn'],
     'region' => 'eu-west',
     'image' => 'linode/ubuntu22.04',
