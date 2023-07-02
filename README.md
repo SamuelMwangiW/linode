@@ -1,7 +1,7 @@
 ### linode client
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/samuelmwangiw/linode.svg?style=flat-square)](https://packagist.org/packages/samuelmwangiw/linode)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/samuelmwangiw/linode/run-tests?label=tests)](https://github.com/samuelmwangiw/linode/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/samuelmwangiw/linode/Check%20&%20fix%20styling?label=code%20style)](https://github.com/samuelmwangiw/linode/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/samuelmwangiw/linode/run-tests.yml?branch=main&label=tests)](https://github.com/samuelmwangiw/linode/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/samuelmwangiw/linode/php-cs-fixer.yml?branch=main&label=code%20style)](https://github.com/samuelmwangiw/linode/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![PHPStan](https://github.com/SamuelMwangiW/linode/actions/workflows/phpstan.yml/badge.svg)](https://github.com/SamuelMwangiW/linode/actions/workflows/phpstan.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/samuelmwangiw/linode.svg?style=flat-square)](https://packagist.org/packages/samuelmwangiw/linode)
 
