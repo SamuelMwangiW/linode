@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use SamuelMwangiW\Linode\Saloon\AuthenticatedConnector;
 use SamuelMwangiW\Linode\Saloon\Requests;
 
 it('fakes requests', function ($requestClass, $fixture) {
@@ -12,8 +13,10 @@ it('fakes requests', function ($requestClass, $fixture) {
         associative: true
     );
 
-    $receivedResponse = (new $requestClass())
-        ->send()
+    $requestObject = (new $requestClass());
+
+    $receivedResponse = \SamuelMwangiW\Linode\Saloon\AuthenticatedConnector::make()
+        ->send($requestObject)
         ->throw()
         ->json();
 

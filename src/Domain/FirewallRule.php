@@ -6,6 +6,7 @@ namespace SamuelMwangiW\Linode\Domain;
 
 use SamuelMwangiW\Linode\DTO\FirewallRulesDTO;
 use SamuelMwangiW\Linode\Factory\FirewallRulesFactory;
+use SamuelMwangiW\Linode\Saloon\BaseConnector;
 use SamuelMwangiW\Linode\Saloon\Requests\Firewall\Rules\ListRequest;
 
 class FirewallRule
@@ -13,16 +14,17 @@ class FirewallRule
     /**
      * @param $firewallId
      * @return FirewallRulesDTO
-     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function show($firewallId): FirewallRulesDTO
     {
+        $connector = BaseConnector::make();
+        $request = ListRequest::make($firewallId);
+
         return FirewallRulesFactory::make(
-            data: ListRequest::make($firewallId)
-                ->send()
+            data: $connector->send($request)
                 ->throw()
                 ->json()
         );

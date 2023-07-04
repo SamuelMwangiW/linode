@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace SamuelMwangiW\Linode\Domain;
 
 use Illuminate\Support\Collection;
-use Sammyjo20\Saloon\Http\SaloonResponse;
+use Saloon\Contracts\Response;
 use SamuelMwangiW\Linode\DTO\FirewallDTO;
 use SamuelMwangiW\Linode\Factory\FirewallFactory;
+use SamuelMwangiW\Linode\Saloon\AuthenticatedConnector;
 use SamuelMwangiW\Linode\Saloon\Requests\Firewall\CreateRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Firewall\DeleteRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Firewall\ListRequest;
@@ -25,15 +26,16 @@ class Firewall
 
     /**
      * @return Collection<FirewallDTO>
-     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function list(): Collection
     {
-        return ListRequest::make()
-            ->send()
+        $request = ListRequest::make();
+
+        return AuthenticatedConnector::make()
+            ->send($request)
             ->throw()
             ->collect('data')
             ->map(fn (array $firewall) => FirewallFactory::make($firewall));
@@ -42,49 +44,52 @@ class Firewall
     /**
      * @param $firewallId
      * @return FirewallDTO
-     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function show($firewallId): FirewallDTO
     {
+        $request = ShowRequest::make($firewallId);
+
         return FirewallFactory::make(
-            data: ShowRequest::make($firewallId)
-                ->send()
+            data: AuthenticatedConnector::make()
+                ->send($request)
                 ->throw()
                 ->json()
         );
     }
 
     /**
-     * @param $data
-     * @return void
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @param array $data
+     * @return Collection
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
-    public function create($data)
+    public function create(array $data): Collection
     {
-        CreateRequest::make($data)
-            ->send()
+        $request = CreateRequest::make($data);
+
+        return AuthenticatedConnector::make()
+            ->send($request)
             ->throw()
-            ->collect()->dd();
+            ->collect();
     }
 
     /**
      * @param $firewallId
-     * @return SaloonResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return Response
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
-    public function destroy($firewallId): SaloonResponse
+    public function destroy($firewallId): Response
     {
-        return DeleteRequest::make($firewallId)
-            ->send()
+        $request = DeleteRequest::make($firewallId);
+
+        return AuthenticatedConnector::make()
+            ->send($request)
             ->throw();
     }
 }

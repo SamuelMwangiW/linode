@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace SamuelMwangiW\Linode\Saloon\Requests\Firewall;
 
-use Sammyjo20\Saloon\Constants\Saloon;
+use Saloon\Enums\Method;
 use SamuelMwangiW\Linode\Saloon\Requests\AuthenticatedRequest;
 
 class DeleteRequest extends AuthenticatedRequest
 {
-    protected ?string $method = Saloon::DELETE;
+    protected Method $method = Method::DELETE;
 
     public function __construct(
-        private string $firewallId
+        private readonly string|int $firewallId
     ) {
     }
 
-    public function defineEndpoint(): string
+    public function resolveEndpoint(): string
     {
         return "networking/firewalls/{$this->firewallId}";
     }

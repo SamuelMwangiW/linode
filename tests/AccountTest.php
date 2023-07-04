@@ -5,11 +5,14 @@ declare(strict_types=1);
 use SamuelMwangiW\Linode\DTO\AccountDTO;
 use SamuelMwangiW\Linode\Exceptions\CredentialsMissing;
 use SamuelMwangiW\Linode\Facades\Linode;
+use SamuelMwangiW\Linode\Saloon\AuthenticatedConnector;
 use SamuelMwangiW\Linode\Saloon\Requests\Account\GetRequest;
 
 it('authenticate throws an exception when linode.config is not set', function () {
     config()->set('linode.token', '');
-    GetRequest::make()->send()->throw();
+    $request = GetRequest::make();
+
+    AuthenticatedConnector::make()->send($request)->throw();
 })->throws(CredentialsMissing::class);
 
 it('linode returns an account')

@@ -4,20 +4,17 @@ declare(strict_types=1);
 
 namespace SamuelMwangiW\Linode\Saloon;
 
-use Sammyjo20\Saloon\Http\SaloonConnector;
-use Sammyjo20\Saloon\Traits\Plugins\AcceptsJson;
+use Saloon\Http\Connector;
 
-class BaseConnector extends SaloonConnector
+class BaseConnector extends Connector
 {
-    use AcceptsJson;
-
-    public function defineBaseUrl(): string
+    public function resolveBaseUrl(): string
     {
         return config('linode.endpoint');
     }
 
     /**
-     * @return array<int,string>
+     * @return array<string,mixed>
      */
     public function defaultHeaders(): array
     {
@@ -25,7 +22,7 @@ class BaseConnector extends SaloonConnector
     }
 
     /**
-     * @return array<int,string>
+     * @return array<string,mixed>
      */
     public function defaultConfig(): array
     {

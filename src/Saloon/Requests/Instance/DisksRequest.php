@@ -9,11 +9,11 @@ use SamuelMwangiW\Linode\Saloon\Requests\AuthenticatedRequest;
 class DisksRequest extends AuthenticatedRequest
 {
     public function __construct(
-        private string|int $instanceId
+        private readonly string|int $instanceId
     ) {
     }
 
-    public function defineEndpoint(): string
+    public function resolveEndpoint(): string
     {
         return "linode/instances/{$this->instanceId}/disks";
     }

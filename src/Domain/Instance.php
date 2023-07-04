@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 namespace SamuelMwangiW\Linode\Domain;
 
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Collection;
-use Sammyjo20\Saloon\Exceptions\SaloonException;
-use Sammyjo20\Saloon\Exceptions\SaloonRequestException;
-use Sammyjo20\Saloon\Http\SaloonResponse;
-use SamuelMwangiW\Linode\DTO\DiskDTO;
+use Saloon\Contracts\Response;
 use SamuelMwangiW\Linode\DTO\InstanceDTO;
 use SamuelMwangiW\Linode\Factory\DiskFactory;
 use SamuelMwangiW\Linode\Factory\InstanceFactory;
+use SamuelMwangiW\Linode\Saloon\AuthenticatedConnector;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\CloneRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\CreateRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Instance\DeleteRequest;
@@ -25,16 +22,17 @@ use SamuelMwangiW\Linode\Saloon\Requests\Instance\UpdateRequest;
 class Instance
 {
     /**
-     * @return Collection<InstanceDTO>
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return Collection
      * @throws \ReflectionException
-     * @throws SaloonException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function list(): Collection
     {
-        return ListRequest::make()
-            ->send()
+        $request = ListRequest::make();
+        $connector = AuthenticatedConnector::make();
+
+        return $connector->send($request)
             ->throw()
             ->collect('data')
             ->map(fn ($data) => InstanceFactory::make($data));
@@ -43,15 +41,16 @@ class Instance
     /**
      * @param string|int $instance
      * @return InstanceDTO
-     * @throws SaloonException
-     * @throws GuzzleException
      * @throws \ReflectionException
-     * @throws SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function show(string|int $instance): InstanceDTO
     {
-        $data = GetRequest::make($instance)
-            ->send()
+        $request = GetRequest::make($instance);
+        $connector = AuthenticatedConnector::make();
+
+        $data = $connector->send($request)
             ->throw()
             ->json();
 
@@ -60,16 +59,17 @@ class Instance
 
     /**
      * @param string|int $instance
-     * @return Collection<DiskDTO>
-     * @throws GuzzleException
-     * @throws SaloonException
-     * @throws SaloonRequestException
+     * @return Collection
      * @throws \ReflectionException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function disks(string|int $instance): Collection
     {
-        return DisksRequest::make($instance)
-            ->send()
+        $request = DisksRequest::make($instance);
+        $connector = AuthenticatedConnector::make();
+
+        return $connector->send($request)
             ->throw()
             ->collect('data')
             ->map(fn (array $disk) => DiskFactory::make($disk));
@@ -78,15 +78,16 @@ class Instance
     /**
      * @param array $instance
      * @return InstanceDTO
-     * @throws GuzzleException
-     * @throws SaloonException
-     * @throws SaloonRequestException
      * @throws \ReflectionException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function create(array $instance): InstanceDTO
     {
-        $data = CreateRequest::make($instance)
-            ->send()
+        $request = CreateRequest::make($instance);
+        $connector = AuthenticatedConnector::make();
+
+        $data = $connector->send($request)
             ->throw()
             ->json();
 
@@ -97,15 +98,16 @@ class Instance
      * @param int $id
      * @param array $instance_details
      * @return InstanceDTO
-     * @throws GuzzleException
-     * @throws SaloonException
-     * @throws SaloonRequestException
      * @throws \ReflectionException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function update(int $id, array $instance_details): InstanceDTO
     {
-        $data = UpdateRequest::make($id, $instance_details)
-            ->send()
+        $request = UpdateRequest::make($id, $instance_details);
+        $connector = AuthenticatedConnector::make();
+
+        $data = $connector->send($request)
             ->throw()
             ->json();
 
@@ -116,15 +118,16 @@ class Instance
      * @param int $id
      * @param array $instance_details
      * @return InstanceDTO
-     * @throws GuzzleException
-     * @throws SaloonException
-     * @throws SaloonRequestException
      * @throws \ReflectionException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function clone(int $id, array $instance_details): InstanceDTO
     {
-        $data = CloneRequest::make($id, $instance_details)
-            ->send()
+        $request = CloneRequest::make($id, $instance_details);
+        $connector = AuthenticatedConnector::make();
+
+        $data = $connector->send($request)
             ->throw()
             ->json();
 
@@ -133,31 +136,31 @@ class Instance
 
     /**
      * @param mixed $id
-     * @return SaloonResponse
-     * @throws GuzzleException
-     * @throws SaloonException
-     * @throws SaloonRequestException
+     * @return Response
      * @throws \ReflectionException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
-    public function destroy(mixed $id): SaloonResponse
+    public function destroy(mixed $id): Response
     {
-        return DeleteRequest::make($id)
-            ->send()
-            ->throw();
+        $request = DeleteRequest::make($id);
+        $connector = AuthenticatedConnector::make();
+
+        return $connector->send($request)->throw();
     }
 
     /**
      * @param mixed $linodeId
-     * @return SaloonResponse
-     * @throws GuzzleException
-     * @throws SaloonException
-     * @throws SaloonRequestException
+     * @return Response
      * @throws \ReflectionException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
-    public function shutdown(mixed $linodeId): SaloonResponse
+    public function shutdown(mixed $linodeId): Response
     {
-        return ShutdownRequest::make($linodeId)
-            ->send()
-            ->throw();
+        $request = ShutdownRequest::make($linodeId);
+        $connector = AuthenticatedConnector::make();
+
+        return $connector->send($request)->throw();
     }
 }

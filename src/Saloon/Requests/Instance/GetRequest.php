@@ -9,11 +9,11 @@ use SamuelMwangiW\Linode\Saloon\Requests\AuthenticatedRequest;
 class GetRequest extends AuthenticatedRequest
 {
     public function __construct(
-        private string|int $id
+        private readonly string|int $id,
     ) {
     }
 
-    public function defineEndpoint(): string
+    public function resolveEndpoint(): string
     {
         return 'linode/instances/'.$this->id;
     }
