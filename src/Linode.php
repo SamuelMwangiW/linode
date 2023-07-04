@@ -20,10 +20,9 @@ class Linode
 
     /**
      * @return DTO\AccountDTO
-     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function account(): DTO\AccountDTO
     {
