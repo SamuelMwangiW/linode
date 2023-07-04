@@ -17,7 +17,8 @@ class CreateRequest extends AuthenticatedRequest implements HasBody
 
     public function __construct(
         private readonly array $data,
-    ){}
+    ) {
+    }
 
     public function defaultBody(): array
     {
