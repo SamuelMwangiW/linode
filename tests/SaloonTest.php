@@ -12,14 +12,13 @@ it('fakes requests', function ($requestClass, $fixture) {
         associative: true
     );
 
-    $requestObject = (new $requestClass());
-
     $receivedResponse = \SamuelMwangiW\Linode\Saloon\AuthenticatedConnector::make()
-        ->send($requestObject)
+        ->send((new $requestClass()))
         ->throw()
         ->json();
 
     expect($receivedResponse)->toBe($expectedResponse);
 })->with([
     'regions list request' => [Requests\Regions\ListRequest::class, 'get/regions'],
+    'Linode types request' => [Requests\Billing\PlansListRequest::class, 'get/linode/types'],
 ]);
