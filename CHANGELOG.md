@@ -2,6 +2,14 @@
 
 All notable changes to `linode-cli` will be documented in this file.
 
+## v2.3.0 - 2024-01-30
+
+### What's Changed
+
+* Upgrade to Saloon v2 by @SamuelMwangiW in https://github.com/SamuelMwangiW/linode/pull/18
+
+**Full Changelog**: https://github.com/SamuelMwangiW/linode/compare/v2.2.0...v2.3.0
+
 ## v2.2.0 - 2023-07-02
 
 ### What's Changed
