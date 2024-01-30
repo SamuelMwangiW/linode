@@ -7,6 +7,7 @@ namespace SamuelMwangiW\Linode\Domain;
 use Illuminate\Support\Collection;
 use SamuelMwangiW\Linode\DTO\ImageDTO;
 use SamuelMwangiW\Linode\Factory\ImageFactory;
+use SamuelMwangiW\Linode\Saloon\AuthenticatedConnector;
 use SamuelMwangiW\Linode\Saloon\Requests\Images\CreateRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Images\ListRequest;
 use SamuelMwangiW\Linode\Saloon\Requests\Images\ShowRequest;
@@ -15,15 +16,16 @@ class Image
 {
     /**
      * @return Collection<ImageDTO>
-     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function list(): Collection
     {
-        return ListRequest::make()
-            ->send()
+        $request = ListRequest::make();
+        $connector = AuthenticatedConnector::make();
+
+        return $connector->send($request)
             ->throw()
             ->collect('data')
             ->map(fn (array $image) => ImageFactory::make($image));
@@ -32,15 +34,16 @@ class Image
     /**
      * @param array $data
      * @return ImageDTO
-     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function create(array $data): ImageDTO
     {
-        $image = CreateRequest::make($data)
-            ->send()
+        $request = CreateRequest::make($data);
+        $connector = AuthenticatedConnector::make();
+
+        $image = $connector->send($request)
             ->throw()
             ->json();
 
@@ -50,15 +53,16 @@ class Image
     /**
      * @param string $id
      * @return ImageDTO
-     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \ReflectionException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonException
-     * @throws \Sammyjo20\Saloon\Exceptions\SaloonRequestException
+     * @throws \Saloon\Exceptions\InvalidResponseClassException
+     * @throws \Saloon\Exceptions\PendingRequestException
      */
     public function show(string $id): ImageDTO
     {
-        $image = ShowRequest::make($id)
-            ->send()
+        $request = ShowRequest::make($id);
+        $connector = AuthenticatedConnector::make();
+
+        $image = $connector->send($request)
             ->throw()
             ->json();
 

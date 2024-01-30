@@ -9,11 +9,11 @@ use SamuelMwangiW\Linode\Saloon\Requests\AuthenticatedRequest;
 class ListRequest extends AuthenticatedRequest
 {
     public function __construct(
-        private string $firewallId
+        private readonly string|int $firewallId
     ) {
     }
 
-    public function defineEndpoint(): string
+    public function resolveEndpoint(): string
     {
         return "networking/firewalls/{$this->firewallId}/rules";
     }

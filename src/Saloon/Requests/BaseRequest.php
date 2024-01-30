@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace SamuelMwangiW\Linode\Saloon\Requests;
 
-use Sammyjo20\Saloon\Constants\Saloon;
-use Sammyjo20\Saloon\Http\SaloonRequest;
-use SamuelMwangiW\Linode\Saloon\BaseConnector;
+use Saloon\Enums\Method;
+use Saloon\Http\Request;
 
-abstract class BaseRequest extends SaloonRequest
+abstract class BaseRequest extends Request
 {
-    protected ?string $connector = BaseConnector::class;
-
-    protected ?string $method = Saloon::GET;
+    protected Method $method = Method::GET;
 }

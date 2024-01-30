@@ -1,0 +1,38 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Content-Type": "application\/json",
+        "Content-Length": "755",
+        "X-OAuth-Scopes": "*",
+        "X-Accepted-OAuth-Scopes": "linodes:read_only",
+        "X-Frame-Options": [
+            "DENY",
+            "DENY"
+        ],
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "HEAD, GET, OPTIONS, POST, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter",
+        "X-Spec-Version": "4.171.0",
+        "Vary": [
+            "Authorization, X-Filter",
+            "Authorization, X-Filter"
+        ],
+        "X-Customer-UUID": "D09103B1-FFFF-AAAA-B88C000000000004",
+        "X-RateLimit-Limit": "400",
+        "X-RateLimit-Remaining": "398",
+        "X-RateLimit-Reset": "1706643748",
+        "Retry-After": "14",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Status",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Expires": "Tue, 30 Jan 2024 19:42:13 GMT",
+        "Cache-Control": "max-age=0, no-cache, no-store",
+        "Pragma": "no-cache",
+        "Date": "Tue, 30 Jan 2024 19:42:13 GMT",
+        "Connection": "keep-alive"
+    },
+    "data": "{\"id\": 23969229, \"label\": \"mariadb\", \"group\": \"\", \"status\": \"running\", \"created\": \"2021-01-12T16:10:19\", \"updated\": \"2023-12-27T07:21:13\", \"type\": \"g6-nanode-1\", \"ipv4\": [\"1.1.1.1\", \"192.168.1.1\"], \"ipv6\": \"2a01:2a01::2a01:2a01:2a01:2a01\/128\", \"image\": \"linode\/ubuntu20.04\", \"region\": \"eu-west\", \"specs\": {\"disk\": 25600, \"memory\": 1024, \"vcpus\": 1, \"gpus\": 0, \"transfer\": 1000}, \"alerts\": {\"cpu\": 70, \"network_in\": 10, \"network_out\": 10, \"transfer_quota\": 80, \"io\": 10000}, \"backups\": {\"enabled\": false, \"available\": false, \"schedule\": {\"day\": null, \"window\": null}, \"last_successful\": null}, \"hypervisor\": \"kvm\", \"watchdog_enabled\": true, \"tags\": [\"production\"], \"host_uuid\": \"94ba71f7ae7d72483247f3e319d84a24645b283a\", \"has_user_data\": false}"
+}

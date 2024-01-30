@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Sammyjo20\Saloon\Http\MockResponse;
-use Sammyjo20\SaloonLaravel\Facades\Saloon;
+use Saloon\Http\Faking\MockResponse;
+use Saloon\Laravel\Saloon;
 use SamuelMwangiW\Linode\Saloon\Requests;
 use SamuelMwangiW\Linode\Tests\TestCase;
 
@@ -36,18 +36,7 @@ function fakeSaloonRequest(string $request): void
         throw new RuntimeException("{$request}/fixture mapping is missing");
     }
 
-    $path = __DIR__ . "/Fixtures/{$fixtures[$request]}.json";
-
-    if (! file_exists($path)) {
-        throw new RuntimeException("Fixture {$path} for {$request} is missing");
-    }
-
-    $response = json_decode(
-        json: file_get_contents($path),
-        associative: true
-    );
-
     Saloon::fake([
-        $request => MockResponse::make($response),
+        $request => MockResponse::fixture("{$fixtures[$request]}"),
     ]);
 }

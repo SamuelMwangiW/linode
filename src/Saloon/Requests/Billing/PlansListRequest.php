@@ -8,7 +8,7 @@ use SamuelMwangiW\Linode\Saloon\Requests\BaseRequest;
 
 class PlansListRequest extends BaseRequest
 {
-    public function defineEndpoint(): string
+    public function resolveEndpoint(): string
     {
         return 'linode/types';
     }

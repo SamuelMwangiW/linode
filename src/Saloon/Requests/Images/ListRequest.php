@@ -8,7 +8,7 @@ use SamuelMwangiW\Linode\Saloon\Requests\AuthenticatedRequest;
 
 class ListRequest extends AuthenticatedRequest
 {
-    public function defineEndpoint(): string
+    public function resolveEndpoint(): string
     {
         return 'images';
     }

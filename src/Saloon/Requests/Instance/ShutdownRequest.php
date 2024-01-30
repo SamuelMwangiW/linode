@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace SamuelMwangiW\Linode\Saloon\Requests\Instance;
 
-use Sammyjo20\Saloon\Constants\Saloon;
+use Saloon\Enums\Method;
 use SamuelMwangiW\Linode\Saloon\Requests\AuthenticatedRequest;
 
 class ShutdownRequest extends AuthenticatedRequest
 {
-    protected ?string $method = Saloon::POST;
+    protected Method $method = Method::POST;
 
     public function __construct(
-        private string $instanceId
+        private readonly string|int $instanceId
     ) {
     }
 
-    public function defineEndpoint(): string
+    public function resolveEndpoint(): string
     {
         return "linode/instances/{$this->instanceId}/shutdown";
     }

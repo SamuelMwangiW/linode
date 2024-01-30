@@ -1,0 +1,35 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Content-Type": "application\/json",
+        "Content-Length": "2",
+        "X-OAuth-Scopes": "*",
+        "X-Accepted-OAuth-Scopes": "linodes:read_write",
+        "X-Frame-Options": [
+            "DENY",
+            "DENY"
+        ],
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "HEAD, GET, OPTIONS, POST, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter",
+        "X-Spec-Version": "4.171.0",
+        "X-Customer-UUID": "D09103B1-FFFF-AAAA-B88C000000000004",
+        "X-RateLimit-Limit": "400",
+        "X-RateLimit-Remaining": "399",
+        "X-RateLimit-Reset": "1706644658",
+        "Retry-After": "60",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Status",
+        "Content-Security-Policy": "default-src 'none'",
+        "Vary": "Authorization, X-Filter",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Expires": "Tue, 30 Jan 2024 19:56:37 GMT",
+        "Cache-Control": "max-age=0, no-cache, no-store",
+        "Pragma": "no-cache",
+        "Date": "Tue, 30 Jan 2024 19:56:37 GMT",
+        "Connection": "keep-alive"
+    },
+    "data": "{}"
+}

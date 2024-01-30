@@ -4,28 +4,29 @@ declare(strict_types=1);
 
 namespace SamuelMwangiW\Linode\Saloon\Requests\Instance;
 
-use Sammyjo20\Saloon\Constants\Saloon;
-use Sammyjo20\Saloon\Traits\Plugins\HasJsonBody;
+use Saloon\Contracts\Body\HasBody;
+use Saloon\Enums\Method;
+use Saloon\Traits\Body\HasJsonBody;
 use SamuelMwangiW\Linode\Saloon\Requests\AuthenticatedRequest;
 
-class UpdateRequest extends AuthenticatedRequest
+class UpdateRequest extends AuthenticatedRequest implements HasBody
 {
     use HasJsonBody;
 
-    protected ?string $method = Saloon::PUT;
+    protected Method $method = Method::PUT;
 
     public function __construct(
-        private string $instanceId,
-        private array $data,
+        private readonly string|int $instanceId,
+        private readonly array      $data,
     ) {
     }
 
-    public function defaultData(): array
+    public function defaultBody(): array
     {
         return $this->data;
     }
 
-    public function defineEndpoint(): string
+    public function resolveEndpoint(): string
     {
         return "linode/instances/{$this->instanceId}";
     }
