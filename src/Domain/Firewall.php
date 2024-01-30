@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SamuelMwangiW\Linode\Domain;
 
 use Illuminate\Support\Collection;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 use SamuelMwangiW\Linode\DTO\FirewallDTO;
 use SamuelMwangiW\Linode\Factory\FirewallFactory;
 use SamuelMwangiW\Linode\Saloon\AuthenticatedConnector;
