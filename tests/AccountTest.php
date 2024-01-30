@@ -19,6 +19,6 @@ it('linode returns an account')
     ->tap(fn () => fakeSaloonRequest(GetRequest::class))
     ->expect(fn () => Linode::account())
     ->toBeInstanceOf(AccountDTO::class)
-    ->company->toBe('mwangithegreat')
-    ->email->toBe('samuel@samuelmwangi.co.ke')
-    ->uid->toBe('D09103B1-20FE-11EA-B88C0CC47AEB2714');
+    ->company->toBe('Test Company Unlimited')
+    ->email->toBe('user@example.com')
+    ->uid->toBe('D09103B1-FFFF-AAAA-B88C000000000004');

@@ -1,1 +1,38 @@
-{"statusCode":401,"headers":{"Server":"nginx","Date":"Mon, 03 Jul 2023 13:13:06 GMT","Content-Type":"application\/json","Content-Length":"41","Connection":"keep-alive","Cache-Control":"private, max-age=0, s-maxage=0, no-cache, no-store","X-OAuth-Scopes":"unknown","X-Accepted-OAuth-Scopes":"account:read_only","X-Frame-Options":"DENY","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"HEAD, GET, OPTIONS, POST, PUT, DELETE","Access-Control-Allow-Headers":"Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter","X-Spec-Version":"4.157.1","Vary":"Authorization, X-Filter","X-RateLimit-Limit":"800","X-RateLimit-Remaining":"799","X-RateLimit-Reset":"1688390047","Retry-After":"60"},"data":"{\"errors\": [{\"reason\": \"Invalid Token\"}]}"}
+{
+    "statusCode": 200,
+    "headers": {
+        "Content-Type": "application\/json",
+        "Content-Length": "680",
+        "X-OAuth-Scopes": "*",
+        "X-Accepted-OAuth-Scopes": "account:read_only",
+        "X-Frame-Options": [
+            "DENY",
+            "DENY"
+        ],
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "HEAD, GET, OPTIONS, POST, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter",
+        "X-Spec-Version": "4.171.0",
+        "Vary": [
+            "Authorization, X-Filter",
+            "Authorization, X-Filter"
+        ],
+        "X-Customer-UUID": "D09103B1-FFFF-AAAA-B88C000000000004",
+        "X-RateLimit-Limit": "400",
+        "X-RateLimit-Remaining": "399",
+        "X-RateLimit-Reset": "1706632201",
+        "Retry-After": "60",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Status",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Expires": "Tue, 30 Jan 2024 16:29:01 GMT",
+        "Cache-Control": "max-age=0, no-cache, no-store",
+        "Pragma": "no-cache",
+        "Date": "Tue, 30 Jan 2024 16:29:01 GMT",
+        "Connection": "keep-alive"
+    },
+    "data": "{\"company\": \"Test Company Unlimited\", \"email\": \"user@example.com\", \"first_name\": \"Samuel\", \"last_name\": \"Mwangi\", \"address_1\": \"P.O Box 123\", \"address_2\": \"\", \"city\": \"Nairobi\", \"state\": \"Nairobi City\", \"zip\": \"00100\", \"country\": \"KE\", \"phone\": \"\", \"balance\": 1000.0, \"tax_id\": \"\", \"billing_source\": \"linode\", \"credit_card\": {\"last_four\": \"1234\", \"expiry\": \"05\/2038\"}, \"balance_uninvoiced\": 0.09, \"active_since\": \"2007-08-19T09:18:33\", \"capabilities\": [\"Linodes\", \"NodeBalancers\", \"Block Storage\", \"Object Storage\", \"Kubernetes\", \"Cloud Firewall\", \"Vlans\", \"LKE HA Control Planes\", \"Machine Images\", \"VPCs\"], \"active_promotions\": [], \"euuid\": \"D09103B1-FFFF-AAAA-B88C000000000004\"}"
+}

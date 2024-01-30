@@ -1,1 +1,40 @@
-{"statusCode":401,"headers":{"Server":"nginx","Date":"Tue, 04 Jul 2023 08:37:11 GMT","Content-Type":"application\/json","Content-Length":"41","Connection":"keep-alive","Cache-Control":"private, max-age=0, s-maxage=0, no-cache, no-store","X-OAuth-Scopes":"unknown","X-Accepted-OAuth-Scopes":"linodes:read_only","X-Frame-Options":"DENY","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"HEAD, GET, OPTIONS, POST, PUT, DELETE","Access-Control-Allow-Headers":"Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter","X-Spec-Version":"4.157.1","Vary":"Authorization, X-Filter"},"data":"{\"errors\": [{\"reason\": \"Invalid Token\"}]}"}
+{
+    "statusCode": 200,
+    "headers": {
+        "Content-Type": "application\/json",
+        "X-OAuth-Scopes": "*",
+        "X-Accepted-OAuth-Scopes": "linodes:read_only",
+        "X-Frame-Options": [
+            "DENY",
+            "DENY"
+        ],
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "HEAD, GET, OPTIONS, POST, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter",
+        "X-Spec-Version": "4.171.0",
+        "X-Customer-UUID": "D09103B1-FFFF-AAAA-B88C000000000004",
+        "X-RateLimit-Limit": "400",
+        "X-RateLimit-Remaining": "398",
+        "X-RateLimit-Reset": "1706643397",
+        "Retry-After": "60",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Status",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Vary": [
+            "authorization",
+            "x-filter",
+            "authorization",
+            "x-filter"
+        ],
+        "Expires": "Tue, 30 Jan 2024 19:35:37 GMT",
+        "Cache-Control": "max-age=0, no-cache, no-store",
+        "Pragma": "no-cache",
+        "Date": "Tue, 30 Jan 2024 19:35:37 GMT",
+        "Content-Length": "1564",
+        "Connection": "keep-alive"
+    },
+    "data": "{\"data\": [{\"id\": 23969229, \"label\": \"mariadb\", \"group\": \"\", \"status\": \"running\", \"created\": \"2021-01-12T16:10:19\", \"updated\": \"2023-12-27T07:21:13\", \"type\": \"g6-nanode-1\", \"ipv4\": [\"1.1.1.1\", \"192.168.1.1\"], \"ipv6\": \"2a01:2a01::2a01:2a01:2a01:2a01\/128\", \"image\": \"linode\/ubuntu20.04\", \"region\": \"eu-west\", \"specs\": {\"disk\": 25600, \"memory\": 1024, \"vcpus\": 1, \"gpus\": 0, \"transfer\": 1000}, \"alerts\": {\"cpu\": 70, \"network_in\": 10, \"network_out\": 10, \"transfer_quota\": 80, \"io\": 10000}, \"backups\": {\"enabled\": false, \"available\": false, \"schedule\": {\"day\": null, \"window\": null}, \"last_successful\": null}, \"hypervisor\": \"kvm\", \"watchdog_enabled\": true, \"tags\": [\"production\"], \"host_uuid\": \"94ba71f7ae7d72483247f3e319d84a24645b283a\", \"has_user_data\": false}, {\"id\": 35328941, \"label\": \"insure-prod\", \"group\": \"\", \"status\": \"running\", \"created\": \"2022-03-12T19:52:55\", \"updated\": \"2024-01-12T18:34:39\", \"type\": \"g6-nanode-1\", \"ipv4\": [\"1.0.0.1\", \"192.168.6.9\"], \"ipv6\": \"2a01:2a01::2a01:2a01:2a01:2a02\/128\", \"image\": \"linode\/ubuntu20.04\", \"region\": \"eu-west\", \"specs\": {\"disk\": 25600, \"memory\": 1024, \"vcpus\": 1, \"gpus\": 0, \"transfer\": 1000}, \"alerts\": {\"cpu\": 90, \"network_in\": 10, \"network_out\": 10, \"transfer_quota\": 80, \"io\": 10000}, \"backups\": {\"enabled\": false, \"available\": false, \"schedule\": {\"day\": null, \"window\": null}, \"last_successful\": null}, \"hypervisor\": \"kvm\", \"watchdog_enabled\": true, \"tags\": [\"production\"], \"host_uuid\": \"654693bd6b52017b42d80802f0ac12d6a31712af\", \"has_user_data\": false}], \"page\": 1, \"pages\": 1, \"results\": 2}"
+}

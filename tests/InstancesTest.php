@@ -60,11 +60,12 @@ it('updates an instance', function (int $instance, array $updatedInstance) {
         ->toBeInstanceOf(InstanceDTO::class)
         ->hypervisor->toBe('kvm')
         ->specification->toBeInstanceOf(ServerSpecificationDTO::class)
-        ->created->toBeInstanceOf(Carbon::class)
-        ->created->isToday()->toBeTrue()
+        ->updated->toBeInstanceOf(Carbon::class)
+        ->created->isToday()->toBeFalse()
+        ->created->isPast()->toBeTrue()
+        ->updated->isToday()->toBeTrue()
         ->ips->toBeInstanceOf(Collection::class);
-})
-    ->with('instance-id', 'instance-update');
+})->with('instance-id', 'instance-update');
 
 it('clones an instance', function (int $instance, array $updatedInstance) {
     fakeSaloonRequest(Instance\CloneRequest::class);
@@ -83,7 +84,6 @@ it('clones an instance', function (int $instance, array $updatedInstance) {
 it('destroys an instance')
     ->tap(fn () => fakeSaloonRequest(Instance\DeleteRequest::class))
     ->with('delete-instance-id')
-//    ->markAsRisky()
     ->expect(fn ($instance) => Linode::instance()->destroy(value($instance)))
     ->status()->toBe(200);
 

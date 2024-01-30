@@ -1,1 +1,35 @@
-{"statusCode":401,"headers":{"Server":"nginx","Date":"Mon, 03 Jul 2023 13:12:18 GMT","Content-Type":"application\/json","Content-Length":"41","Connection":"keep-alive","X-OAuth-Scopes":"unknown","X-Accepted-OAuth-Scopes":"images:read_write,linodes:read_only","X-Frame-Options":"DENY","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"HEAD, GET, OPTIONS, POST, PUT, DELETE","Access-Control-Allow-Headers":"Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter","X-Spec-Version":"4.157.1","X-RateLimit-Limit":"800","X-RateLimit-Remaining":"799","X-RateLimit-Reset":"1688389999","Retry-After":"60"},"data":"{\"errors\": [{\"reason\": \"Invalid Token\"}]}"}
+{
+    "statusCode": 200,
+    "headers": {
+        "Content-Type": "application\/json",
+        "Content-Length": "354",
+        "X-OAuth-Scopes": "*",
+        "X-Accepted-OAuth-Scopes": "images:read_write,linodes:read_only",
+        "X-Frame-Options": [
+            "DENY",
+            "DENY"
+        ],
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "HEAD, GET, OPTIONS, POST, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter",
+        "X-Spec-Version": "4.171.0",
+        "X-Customer-UUID": "D09103B1-FFFF-AAAA-B88C000000000004",
+        "X-RateLimit-Limit": "400",
+        "X-RateLimit-Remaining": "399",
+        "X-RateLimit-Reset": "1706643180",
+        "Retry-After": "60",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Status",
+        "Content-Security-Policy": "default-src 'none'",
+        "Vary": "Authorization, X-Filter",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Expires": "Tue, 30 Jan 2024 19:31:59 GMT",
+        "Cache-Control": "max-age=0, no-cache, no-store",
+        "Pragma": "no-cache",
+        "Date": "Tue, 30 Jan 2024 19:31:59 GMT",
+        "Connection": "keep-alive"
+    },
+    "data": "{\"id\": \"private\/23608448\", \"label\": \"backup_disk\", \"description\": \"Created in tests, delete\", \"created\": \"2024-01-30T19:31:59\", \"updated\": \"2024-01-30T19:31:59\", \"size\": 24088, \"created_by\": \"test\", \"type\": \"manual\", \"is_public\": false, \"deprecated\": false, \"vendor\": null, \"expiry\": null, \"eol\": null, \"status\": \"creating\", \"capabilities\": []}"
+}

@@ -6,6 +6,7 @@ namespace SamuelMwangiW\Linode\Domain;
 
 use SamuelMwangiW\Linode\DTO\FirewallRulesDTO;
 use SamuelMwangiW\Linode\Factory\FirewallRulesFactory;
+use SamuelMwangiW\Linode\Saloon\AuthenticatedConnector;
 use SamuelMwangiW\Linode\Saloon\BaseConnector;
 use SamuelMwangiW\Linode\Saloon\Requests\Firewall\Rules\ListRequest;
 
@@ -20,7 +21,7 @@ class FirewallRule
      */
     public function show($firewallId): FirewallRulesDTO
     {
-        $connector = BaseConnector::make();
+        $connector = AuthenticatedConnector::make();
         $request = ListRequest::make($firewallId);
 
         return FirewallRulesFactory::make(

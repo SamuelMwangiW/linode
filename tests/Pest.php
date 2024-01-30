@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Laravel\Facades\Saloon;
+use Saloon\Laravel\Saloon;
 use SamuelMwangiW\Linode\Saloon\Requests;
 use SamuelMwangiW\Linode\Tests\TestCase;
 

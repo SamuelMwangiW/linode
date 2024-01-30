@@ -1,1 +1,40 @@
-{"statusCode":401,"headers":{"Server":"nginx","Date":"Mon, 03 Jul 2023 12:29:54 GMT","Content-Type":"application\/json","Content-Length":"41","Connection":"keep-alive","Cache-Control":"private, max-age=0, s-maxage=0, no-cache, no-store","X-OAuth-Scopes":"unknown","X-Accepted-OAuth-Scopes":"firewall:read_only","X-Frame-Options":"DENY","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"HEAD, GET, OPTIONS, POST, PUT, DELETE","Access-Control-Allow-Headers":"Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter","X-Spec-Version":"4.157.1","Vary":"Authorization, X-Filter"},"data":"{\"errors\": [{\"reason\": \"Invalid Token\"}]}"}
+{
+  "statusCode": 200,
+  "headers": {
+    "Content-Type": "application\/json",
+    "X-OAuth-Scopes": "*",
+    "X-Accepted-OAuth-Scopes": "firewall:read_only",
+    "X-Frame-Options": [
+      "DENY",
+      "DENY"
+    ],
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "HEAD, GET, OPTIONS, POST, PUT, DELETE",
+    "Access-Control-Allow-Headers": "Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter",
+    "X-Spec-Version": "4.171.0",
+    "X-Customer-UUID": "D09103B1-FFFF-AAAA-B88C000000000004",
+    "X-RateLimit-Limit": "400",
+    "X-RateLimit-Remaining": "399",
+    "X-RateLimit-Reset": "1706630644",
+    "Retry-After": "60",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Expose-Headers": "X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Status",
+    "Content-Security-Policy": "default-src 'none'",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Strict-Transport-Security": "max-age=31536000",
+    "Vary": [
+      "authorization",
+      "x-filter",
+      "authorization",
+      "x-filter"
+    ],
+    "Expires": "Tue, 30 Jan 2024 16:03:03 GMT",
+    "Cache-Control": "max-age=0, no-cache, no-store",
+    "Pragma": "no-cache",
+    "Date": "Tue, 20 Apr 2420 16:03:03 GMT",
+    "Content-Length": "4273",
+    "Connection": "keep-alive"
+  },
+  "data": "{\"data\": [{\"id\": 1096, \"label\": \"webservers\", \"created\": \"2021-05-24T20:55:22\", \"updated\": \"2024-01-26T10:33:27\", \"status\": \"enabled\", \"rules\": {\"inbound\": [{\"ports\": \"\", \"protocol\": \"TCP\", \"addresses\": {\"ipv6\": [\"::\/0\"]}, \"action\": \"DROP\", \"label\": \"no-v6\"}, {\"ports\": \"1-65535\", \"protocol\": \"TCP\", \"addresses\": {\"ipv4\": [\"127.0.0.1\/8\"]}, \"action\": \"ACCEPT\", \"label\": \"allow-local\", \"description\": \"Allow local IPS\"}, {\"ports\": \"80, 443\", \"protocol\": \"TCP\", \"addresses\": {\"ipv4\": [\"173.245.48.0\/20\", \"103.21.244.0\/22\", \"103.22.200.0\/22\", \"103.31.4.0\/22\", \"141.101.64.0\/18\", \"108.162.192.0\/18\", \"190.93.240.0\/20\", \"188.114.96.0\/20\", \"197.234.240.0\/22\", \"198.41.128.0\/17\", \"162.158.0.0\/15\", \"104.16.0.0\/13\", \"104.24.0.0\/14\", \"172.64.0.0\/13\", \"131.0.72.0\/22\"]}, \"action\": \"ACCEPT\", \"label\": \"accept-inbound-http-s-cloudflare\"}, {\"action\": \"ACCEPT\", \"addresses\": {\"ipv4\": [\"0.0.0.0\/0\"]}, \"ports\": \"18534\", \"protocol\": \"TCP\", \"label\": \"accept-inbound-SSH-18534\", \"description\": null}, {\"action\": \"ACCEPT\", \"addresses\": {\"ipv4\": [\"0.0.0.0\/0\"]}, \"ports\": \"22\", \"protocol\": \"TCP\", \"label\": \"accept-inbound-SSH\", \"description\": null}, {\"action\": \"ACCEPT\", \"addresses\": {\"ipv4\": [\"0.0.0.0\/0\"]}, \"ports\": \"80, 443\", \"protocol\": \"TCP\", \"label\": \"accept-inbound-HTTPS\", \"description\": null}], \"outbound\": [], \"inbound_policy\": \"DROP\", \"outbound_policy\": \"ACCEPT\"}, \"tags\": [], \"entities\": [{\"id\": 35328941, \"type\": \"linode\", \"label\": \"worker1-prod\", \"url\": \"\/v4\/linode\/instances\/87654321\"}]}, {\"id\": 6969, \"label\": \"databases\", \"created\": \"2021-08-04T06:49:32\", \"updated\": \"2024-01-23T21:14:22\", \"status\": \"enabled\", \"rules\": {\"inbound\": [{\"ports\": \"80, 443\", \"protocol\": \"TCP\", \"addresses\": {\"ipv4\": [\"0.0.0.0\/0\"], \"ipv6\": [\"::\/0\"]}, \"action\": \"ACCEPT\", \"label\": \"accept-inbound-HTTP\"}, {\"ports\": \"1555\", \"protocol\": \"TCP\", \"addresses\": {\"ipv4\": [\"0.0.0.0\/0\"]}, \"action\": \"ACCEPT\", \"label\": \"accept-inbound-SSH\"}, {\"action\": \"ACCEPT\", \"addresses\": {\"ipv4\": [\"0.0.0.0\/0\"]}, \"ports\": \"22\", \"protocol\": \"TCP\", \"label\": \"accept-inbound-SSH-ED\", \"description\": null}], \"outbound\": [], \"inbound_policy\": \"DROP\", \"outbound_policy\": \"ACCEPT\"}, \"tags\": [], \"entities\": []}, {\"id\": 420, \"label\": \"dmz\", \"created\": \"2022-06-28T12:37:22\", \"updated\": \"2023-11-27T04:32:59\", \"status\": \"enabled\", \"rules\": {\"inbound\": [{\"ports\": \"\", \"protocol\": \"TCP\", \"addresses\": {\"ipv4\": [\"127.0.0.1\/8\"]}, \"action\": \"ACCEPT\", \"label\": \"allow-local-tcp\"}, {\"protocol\": \"ICMP\", \"addresses\": {\"ipv4\": [\"127.0.0.1\/8\"]}, \"action\": \"ACCEPT\", \"label\": \"allow-local-icmp\"}, {\"ports\": \"\", \"protocol\": \"UDP\", \"addresses\": {\"ipv4\": [\"127.0.0.1\/8\"]}, \"action\": \"ACCEPT\", \"label\": \"allow-local-udp\"}], \"inbound_policy\": \"DROP\", \"outbound\": [{\"ports\": \"80\", \"protocol\": \"TCP\", \"addresses\": {\"ipv4\": [\"91.189.91.0\/24\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\"], \"ipv6\": [\"2a01:4f8:1c17:e53d::1\/128\"]}, \"action\": \"ACCEPT\", \"label\": \"allow-ubuntu-updates\", \"description\": null}, {\"ports\": \"53\", \"protocol\": \"UDP\", \"addresses\": {\"ipv4\": [\"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\"]}, \"action\": \"ACCEPT\", \"label\": \"accept-outbound-DNS\"}, {\"ports\": \"443\", \"protocol\": \"TCP\", \"addresses\": {\"ipv4\": [\"127.0.0.1\/8\"], \"ipv6\": [\"2600:3c00:1::607e:7742\/128\"]}, \"action\": \"ACCEPT\", \"label\": \"allow-longview\"}, {\"ports\": \"123\", \"protocol\": \"UDP\", \"addresses\": {\"ipv4\": [\"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\", \"127.0.0.1\/8\"], \"ipv6\": [\"2620:2d:4000:1::40\/128\", \"2620:2d:4000:1::3f\/128\", \"2620:2d:4000:1::41\/128\"]}, \"action\": \"ACCEPT\", \"label\": \"allow-timesync\"}, {\"action\": \"ACCEPT\", \"addresses\": {\"ipv4\": [\"0.0.0.0\/0\"], \"ipv6\": [\"::\/0\"]}, \"ports\": \"443\", \"protocol\": \"TCP\", \"label\": \"accept-outbound-HTTPS\", \"description\": null}], \"outbound_policy\": \"DROP\"}, \"tags\": [], \"entities\": [{\"id\": 42069, \"type\": \"linode\", \"label\": \"mariadb\", \"url\": \"\/v4\/linode\/instances\/12345678\"}]}], \"page\": 1, \"pages\": 1, \"results\": 3}"
+}
