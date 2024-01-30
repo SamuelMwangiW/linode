@@ -7,7 +7,6 @@ namespace SamuelMwangiW\Linode\Domain;
 use SamuelMwangiW\Linode\DTO\FirewallRulesDTO;
 use SamuelMwangiW\Linode\Factory\FirewallRulesFactory;
 use SamuelMwangiW\Linode\Saloon\AuthenticatedConnector;
-use SamuelMwangiW\Linode\Saloon\BaseConnector;
 use SamuelMwangiW\Linode\Saloon\Requests\Firewall\Rules\ListRequest;
 
 class FirewallRule
