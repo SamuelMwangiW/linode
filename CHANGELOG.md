@@ -2,6 +2,14 @@
 
 All notable changes to `linode-cli` will be documented in this file.
 
+## v2.4.0 - 2024-01-30
+
+### What's Changed
+
+* Saloon v3 by @SamuelMwangiW in https://github.com/SamuelMwangiW/linode/pull/21
+
+**Full Changelog**: https://github.com/SamuelMwangiW/linode/compare/v2.3.0...v2.4.0
+
 ## v2.3.0 - 2024-01-30
 
 ### What's Changed
